@@ -1,6 +1,6 @@
 # Cuny-Replica
 
-This app would be a remake of
+This app would be a remake of the current cuny system as it is not synched well with other servers.
 
 # User Stories
 
@@ -47,14 +47,19 @@ This app would be a remake of
 
 ### Databases
 * Cuny Database
-* Finantial Aid Database
+* Financial Aid Database
 
 
 # Technologies
 * Front End
     * React
-* Back End
+* Back End Server
     * Rails Backend
+        * Faker for generating Students and Teachers
+    * Authentication O-auth
+
+* Database 
+    * Postgresql
 
 
 
@@ -62,3 +67,6 @@ This app would be a remake of
 # Pre challenges
 * Making multiple servers talk to eachother
 
+
+# License
+Copyright © 2017
