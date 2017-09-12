@@ -58,6 +58,7 @@ This app would be a remake of the current cuny system as it is not synched well 
 ![Professor's Students Grades](./photos/20170911_165100.jpg)
 ![Student Grades](./photos/20170911_165113.jpg)
 ![Student Finances](./photos/20170911_165124.jpg)
+<!--rotate all but this one-->
 ![Students Finances Finantial aid](./photos/20170911_165138.jpg)
 ![Finantial aid Account](./photos/20170911_165152.jpg)
 ![Student's Courses](./photos/20170911_165201.jpg)
