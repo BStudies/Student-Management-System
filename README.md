@@ -96,12 +96,8 @@ This app would be a remake of the current cuny system as it is not synched well 
     * t
         * name
     * belongs_to professor
-    * has_many students
-    * has_many grades
-* grade 
-    * t
-        * value
-    * belongs_to student
+    * has_and_belongs_to_many students
+    * has_many grades through students
 * fafsa
     * t 
         * amount
@@ -123,12 +119,16 @@ This app would be a remake of the current cuny system as it is not synched well 
         * name
         * age 
         * email
-    * belongs_to_many courses
+    * has_and_belongs_to_many courses
     * has_many_grades through courses
-    * has fafsa
-    * has tap
-    * has loan
-    * has scholarship
+    * has_one fafsa
+    * has_one tap
+    * has_one loan
+    * has_one scholarship
+* grade 
+    * t
+        * value
+    * belongs_to student
 
 
 
