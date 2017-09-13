@@ -80,16 +80,23 @@ This app would be a remake of the current cuny system as it is not synched well 
 
 
 ### Model
-* admin
+* user
     * t
-        * username
+        * username 
         * email
         * first name
         * last name
-* professor
+        * date of birth
+        * emergency contact 
+        * password_digest
+        * token
+
+* admin < user
     * t
-        * name
-        * email
+
+* professor < user
+    * t
+
     * has_many courses
     * has_many students through courses
 * course
@@ -97,28 +104,26 @@ This app would be a remake of the current cuny system as it is not synched well 
         * name
     * belongs_to professor
     * has_and_belongs_to_many students
-    * has_many grades through students
-* fafsa
-    * t 
-        * amount
-    * belongs_to student
-* tap
-    * t 
-        * amount
-    * belongs_to student
-* loan
-    * t 
-        * amount
-    * belongs_to student
-* scholarship
-    * t 
-        * amount
-    * belongs_to student
-* student
+    * has_and_belongs_to_many grades
+* finantial
     * t
-        * name
-        * age 
-        * email
+        * amount
+* fafsa < finantial
+    * t 
+    * belongs_to student
+* tap < finantial
+    * t 
+    * belongs_to student
+* loan < finantial
+    * t 
+    * belongs_to student
+* scholarship < finantial
+    * t 
+        * amount
+    * belongs_to student
+* student < user
+    * t
+
     * has_and_belongs_to_many courses
     * has_many_grades through courses
     * has_one fafsa
@@ -129,6 +134,8 @@ This app would be a remake of the current cuny system as it is not synched well 
     * t
         * value
     * belongs_to student
+    * has_and_belongs_to_many course
+
 
 
 
