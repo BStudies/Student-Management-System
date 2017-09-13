@@ -58,7 +58,6 @@ This app would be a remake of the current cuny system as it is not synched well 
 ![Professor's Students Grades](./photos/20170911_165100.jpg)
 ![Student Grades](./photos/20170911_165113.jpg)
 ![Student Finances](./photos/20170911_165124.jpg)
-<!--rotate all but this one-->
 ![Students Finances Finantial aid](./photos/20170911_165138.jpg)
 ![Finantial aid Account](./photos/20170911_165152.jpg)
 ![Student's Courses](./photos/20170911_165201.jpg)
@@ -76,6 +75,61 @@ This app would be a remake of the current cuny system as it is not synched well 
 ### Databases
 * Cuny Database
 * Financial Aid Database
+
+
+
+
+### Model
+* admin
+    * t
+        * username
+        * email
+        * first name
+        * last name
+* professor
+    * t
+        * name
+        * email
+    * has_many courses
+    * has_many students through courses
+* course
+    * t
+        * name
+    * belongs_to professor
+    * has_many students
+    * has_many grades
+* grade 
+    * t
+        * value
+    * belongs_to student
+* fafsa
+    * t 
+        * amount
+    * belongs_to student
+* tap
+    * t 
+        * amount
+    * belongs_to student
+* loan
+    * t 
+        * amount
+    * belongs_to student
+* scholarship
+    * t 
+        * amount
+    * belongs_to student
+* student
+    * t
+        * name
+        * age 
+        * email
+    * belongs_to_many courses
+    * has_many_grades through courses
+    * has fafsa
+    * has tap
+    * has loan
+    * has scholarship
+
 
 
 
