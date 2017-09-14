@@ -1,0 +1,2 @@
+class Tap < ApplicationRecord
+end

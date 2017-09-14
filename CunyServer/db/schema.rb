@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914193453) do
+ActiveRecord::Schema.define(version: 20170914194339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,24 @@ ActiveRecord::Schema.define(version: 20170914193453) do
     t.index ["professor_id"], name: "index_courses_on_professor_id"
   end
 
+  create_table "fafsas", force: :cascade do |t|
+    t.bigint "payment_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_fafsas_on_payment_type_id"
+  end
+
   create_table "grades", force: :cascade do |t|
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_types", force: :cascade do |t|
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_payment_types_on_student_id"
   end
 
   create_table "people", force: :cascade do |t|
