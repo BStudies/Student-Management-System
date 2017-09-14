@@ -1,0 +1,2 @@
+web: cd client && yarn start
+api: bundle exe rails s -p 3001
