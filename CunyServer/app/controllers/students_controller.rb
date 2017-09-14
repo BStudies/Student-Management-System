@@ -1,0 +1,3 @@
+class StudentsController < ApiController
+    
+end
