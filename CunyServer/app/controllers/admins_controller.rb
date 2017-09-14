@@ -2,7 +2,7 @@ class AdminsController < UsersController
     # POST /admins
   def create
     super
-    @admin = Admin.new(people_params)
+    @admin = Admin.new()
     @admin.user_id = @user.id
     @admin.save
     # if @user.save
