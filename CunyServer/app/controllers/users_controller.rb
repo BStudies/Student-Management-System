@@ -1,5 +1,5 @@
 class UsersController < ApiController
-  before_action :set_user, only: [:show, :update, :destroy]
+  # before_action :set_user, only: [:show, :update, :destroy]
   before_action :require_login, except: [:create]
   # GET /users
   def index
@@ -13,26 +13,30 @@ class UsersController < ApiController
   #   render json: @user
   # end
   def profile
-    user = User.find_by_auth_token!(request.headers[:token])
+    puts "headers"
+    puts request.headers
+    @user = User.find_by_auth_token!(request.headers[:token])
     render json: {
       user: {
-        username: user.username, 
-        email: user.email, 
-        name: user.name}
+        username: @user.username, 
+        email: @user.email, 
+        name: @user.name}
       }
   end
   
 
   # POST /users
   def create
+    puts "Show user params"
+    puts user_params
     @user = User.new(user_params)
-
-    if @user.save
-      # render json: @user, status: :created, location: @user
-      render json: {token: user.auth_token}
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+    @user.save!
+    # if @user.save
+    #   # render json: @user, status: :created, location: @user
+    #   render json: {token: user.auth_token}
+    # else
+    #   render json: @user.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /users/1

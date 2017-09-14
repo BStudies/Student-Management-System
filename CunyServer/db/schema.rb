@@ -10,19 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914132219) do
+ActiveRecord::Schema.define(version: 20170914184235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "people", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "date_of_birth", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "emergency_contact", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_people_on_student_id"
+    t.index ["user_id"], name: "index_people_on_user_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_students_on_person_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.string "email"
-    t.string "name"
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_users_on_person_id"
     t.index ["username"], name: "index_users_on_username"
   end
 

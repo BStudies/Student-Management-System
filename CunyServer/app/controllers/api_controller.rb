@@ -1,7 +1,8 @@
 class ApiController < ApplicationController
     # checks if current requester is logged in
     def require_login
-        authenticate_token ||= render_unauthorized("Access denied")
+        # authenticate_token ||= render_unauthorized("Access denied")
+        authenticate_token || render_unauthorized("Access denied")
     end
 
     def current_user
@@ -9,15 +10,15 @@ class ApiController < ApplicationController
     end
 
     def is_admin?
-        Admin.find(current_user)
+        Admin.find(current_user.id)
     end
 
     def is_professor?
-        Professor.find(current_user)
+        Professor.find(current_user.id)
     end
     
     def is_student?
-        Student.find(current_user)
+        Student.find(current_user.id)
     end
     
     

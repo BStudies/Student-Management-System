@@ -2,6 +2,7 @@ class User < ApplicationRecord
     validates_uniqueness_of :username
     has_secure_password
     has_secure_token :auth_token
+    has_one :person
 
     # applies logout
     def invalidate_token
