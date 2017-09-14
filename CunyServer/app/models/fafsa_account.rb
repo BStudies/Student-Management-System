@@ -1,0 +1,2 @@
+class FafsaAccount < ApplicationRecord
+end

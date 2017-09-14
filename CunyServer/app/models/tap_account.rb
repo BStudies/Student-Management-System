@@ -1,0 +1,2 @@
+class TapAccount < ApplicationRecord
+end
