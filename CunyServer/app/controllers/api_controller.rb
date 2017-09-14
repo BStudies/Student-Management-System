@@ -7,6 +7,19 @@ class ApiController < ApplicationController
     def current_user
         @current_user ||= authenticate_token
     end
+
+    def is_admin?
+        Admin.find(current_user)
+    end
+
+    def is_professor?
+        Professor.find(current_user)
+    end
+    
+    def is_student?
+        Student.find(current_user)
+    end
+    
     
     protected
     # if request is unauthorized, deny
