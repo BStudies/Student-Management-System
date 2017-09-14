@@ -12,5 +12,8 @@ Rails.application.routes.draw do
 
   resources :students
 
+  # always leave commented unless need to make a new admin
+  resources :admins
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
