@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './modules/Auth'
+
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      auth: isUserAuthenticated(),
+      shouldRedirect: false,
+    }
+  }
   render() {
     return (
       <div className="App">
