@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914194339) do
+ActiveRecord::Schema.define(version: 20170914194701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170914194339) do
 
   create_table "fafsas", force: :cascade do |t|
     t.bigint "payment_type_id"
+    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["payment_type_id"], name: "index_fafsas_on_payment_type_id"
@@ -34,6 +35,22 @@ ActiveRecord::Schema.define(version: 20170914194339) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.bigint "payment_type_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_loans_on_payment_type_id"
+  end
+
+  create_table "out_of_pockets", force: :cascade do |t|
+    t.bigint "payment_type_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_out_of_pockets_on_payment_type_id"
   end
 
   create_table "payment_types", force: :cascade do |t|
@@ -51,14 +68,20 @@ ActiveRecord::Schema.define(version: 20170914194339) do
     t.string "emergency_contact", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "student_id"
-    t.index ["student_id"], name: "index_people_on_student_id"
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
   create_table "professors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "scholarships", force: :cascade do |t|
+    t.bigint "payment_type_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_scholarships_on_payment_type_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -68,6 +91,14 @@ ActiveRecord::Schema.define(version: 20170914194339) do
     t.index ["person_id"], name: "index_students_on_person_id"
   end
 
+  create_table "taps", force: :cascade do |t|
+    t.bigint "payment_type_id"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_taps_on_payment_type_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -75,8 +106,6 @@ ActiveRecord::Schema.define(version: 20170914194339) do
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "person_id"
-    t.index ["person_id"], name: "index_users_on_person_id"
     t.index ["username"], name: "index_users_on_username"
   end
 
