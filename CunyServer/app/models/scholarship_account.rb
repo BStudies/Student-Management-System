@@ -1,0 +1,2 @@
+class ScholarshipAccount < ApplicationRecord
+end
