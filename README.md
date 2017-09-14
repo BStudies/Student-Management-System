@@ -13,7 +13,7 @@ This app would be a remake of the current cuny system as it is not synched well 
         * Students would have a register page
             * Students would create a user
         * Students would log in with their credentials
-            * Automatically generates an account for all Finantial Aid Servers
+            * Automatically generates an account for all financial Aid Servers
             * Students would have access to 
                 * Course History
                 * Current Courses
@@ -58,8 +58,8 @@ This app would be a remake of the current cuny system as it is not synched well 
 ![Professor's Students Grades](./photos/20170911_165100.jpg)
 ![Student Grades](./photos/20170911_165113.jpg)
 ![Student Finances](./photos/20170911_165124.jpg)
-![Students Finances Finantial aid](./photos/20170911_165138.jpg)
-![Finantial aid Account](./photos/20170911_165152.jpg)
+![Students Finances financial aid](./photos/20170911_165138.jpg)
+![financial aid Account](./photos/20170911_165152.jpg)
 ![Student's Courses](./photos/20170911_165201.jpg)
 
 
@@ -105,19 +105,23 @@ This app would be a remake of the current cuny system as it is not synched well 
     * belongs_to professor
     * has_and_belongs_to_many students
     * has_and_belongs_to_many grades
-* finantial
+* financial_account < user
+    * t
+    * belongs_to student
+    * has_one 
+* financial 
     * t
         * amount
-* fafsa < finantial
+* fafsa < financial
     * t 
     * belongs_to student
-* tap < finantial
+* tap < financial
     * t 
     * belongs_to student
-* loan < finantial
+* loan < financial
     * t 
     * belongs_to student
-* scholarship < finantial
+* scholarship < financial
     * t 
         * amount
     * belongs_to student
