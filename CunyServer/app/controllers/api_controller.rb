@@ -5,6 +5,17 @@ class ApiController < ApplicationController
         authenticate_token || render_unauthorized("Access denied")
     end
 
+    def require_admin
+        is_admin? || render_unauthorized("Access denied")
+    end
+    def require_student
+        is_professor? || render_unauthorized("Access denied")
+    end
+    def require_professor
+        is_professor? || render_unauthorized("Access denied")
+    end
+    
+
     def current_user
         @current_user ||= authenticate_token
     end

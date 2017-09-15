@@ -2,11 +2,11 @@ class UsersController < ApiController
   # before_action :set_user, only: [:show, :update, :destroy]
   before_action :require_login, except: [:create]
   # GET /users
-  def index
-    @users = User.all
+  # def index
+  #   @users = User.all
 
-    render json: @users
-  end
+  #   render json: @users
+  # end
 
   # GET /users/1
   # def show

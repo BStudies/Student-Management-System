@@ -6,10 +6,12 @@ class Auth{
         sessionStorage.setItem('token', token);
     }
 
+    // logged in
     static isUserAuthenticated(){
         return sessionStorage.getItem('token') !== null;
     }
 
+    // log out
     static deauthenticateUser(){
         return sessionStorage.removeItem('token');
     }

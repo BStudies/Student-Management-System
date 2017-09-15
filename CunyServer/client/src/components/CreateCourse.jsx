@@ -8,7 +8,6 @@ class CreateCourse extends Component{
     constructor(){
         super();
         this.state = {
-            
         }
     }
 
@@ -16,22 +15,19 @@ class CreateCourse extends Component{
     handleFormSubmit = e => {
         e.preventDefault();
         console.log("this is where we push to server")
+        console.log(this.state)
         axios('/courses', {
             method: 'POST',
             headers: {
                 'Authorization': `Token ${Auth.getToken()}`,
                 token: `${Auth.getToken()}`,
             },
-            body: {
+            data: {
                 course: this.state
             }
         })
         .then(res => {
             console.log(res)
-            this.setState({
-                user: res.data.user,
-                mounted: true,
-            })
         })
     }
 
@@ -56,7 +52,7 @@ class CreateCourse extends Component{
                         Name: <input onChange={e => this.handleInputChange(e)} type="text" name="name" placeholder="Math-101"/>
                     </div>
                     <div>
-                        Desciption: <textarea onChange={e => this.handleInputChange(e)} type="text" name="name" placeholder="This course covers algebra"/>
+                        Desciption: <textarea onChange={e => this.handleInputChange(e)} type="text" name="description" placeholder="This course covers algebra"/>
                     </div>
                     <input type="submit" value="submit"/>
                 </form>

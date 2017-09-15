@@ -2,6 +2,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Auth from '../modules/Auth'
+import {Redirect } from 'react-router'
+
+
+
 
 class Home extends Component{
     constructor(){
@@ -72,53 +76,56 @@ class Home extends Component{
 
 
     render(){
-        return(
-            <div>
-                <h1>Welcome To Cuny</h1>
-            
-                <div className="auth-forms">
-                    <div className="Registration">
-                        <h3>Registration</h3>
-                        <form onSubmit={e => this.handleRegistrationFormSubmit(e)}>
-                            <div className="accountType">
-                                <div className="accountTypeSelection">
-                                    <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="admins" name="accountType"></input> Admin
+        if(!Auth.isUserAuthenticated()){
+            return(
+                <div>
+                    <h1>Welcome To Cuny</h1>
+                
+                    <div className="auth-forms">
+                        <div className="Registration">
+                            <h3>Registration</h3>
+                            <form onSubmit={e => this.handleRegistrationFormSubmit(e)}>
+                                <div className="accountType">
+                                    <div className="accountTypeSelection">
+                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="admins" name="accountType"></input> Admin
+                                    </div>
+                                    <div className="accountTypeSelection">
+                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="professors" name="accountType"></input> Professor
+                                    </div>
+                                    <div className="accountTypeSelection">
+                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="students" name="accountType"></input> Student
+                                    </div>
                                 </div>
-                                <div className="accountTypeSelection">
-                                    <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="professors" name="accountType"></input> Professor
-                                </div>
-                                 <div className="accountTypeSelection">
-                                    <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="students" name="accountType"></input> Student
-                                </div>
-                            </div>
-                            
-                            <input onChange={e=>this.handleInputChange(e)} type="text" name="first_name" placeholder='First Name'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="text" name="last_name" placeholder='Last Name'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="email" name="email" placeholder='Email'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="text" name="username" placeholder='Username'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="password" name="password" placeholder='Password'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="date" name="date_of_birth" placeholder='Date Of Birth'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="tel" name="emergency_contact" placeholder='Emergency Contact'/>
-                            <input type="submit" />
-                        </form>
-                    </div>
-                    
-                    <div className="divider"/>
+                                
+                                <input onChange={e=>this.handleInputChange(e)} type="text" name="first_name" placeholder='First Name'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="text" name="last_name" placeholder='Last Name'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="email" name="email" placeholder='Email'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="text" name="username" placeholder='Username'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="password" name="password" placeholder='Password'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="date" name="date_of_birth" placeholder='Date Of Birth'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="tel" name="emergency_contact" placeholder='Emergency Contact'/>
+                                <input type="submit" />
+                            </form>
+                        </div>
+                        
+                        <div className="divider"/>
 
-                    <div className="Login">
-                        <h3>Login</h3>
-                        <form>
-                            <input onChange={e=>this.handleInputChange(e)} type="text" name="username" placeholder='Username'/>
-                            <input onChange={e=>this.handleInputChange(e)} type="password" name="password" placeholder='Password'/>
-                            <input onClick={e => this.handleLoginFormSubmit(e)} type="submit" />
-                        </form>
-                    </div>
-                    
+                        <div className="Login">
+                            <h3>Login</h3>
+                            <form>
+                                <input onChange={e=>this.handleInputChange(e)} type="text" name="username" placeholder='Username'/>
+                                <input onChange={e=>this.handleInputChange(e)} type="password" name="password" placeholder='Password'/>
+                                <input onClick={e => this.handleLoginFormSubmit(e)} type="submit" />
+                            </form>
+                        </div>
+                        
 
+                    </div>
                 </div>
-            </div>
-            
-        )
+                
+            )
+        }
+        return(<Redirect to="/students/profile"/>)
     }
 }
 
