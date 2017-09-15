@@ -58,6 +58,38 @@ input{
 }
 
 
+.accountType{
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
+.accountTypeSelection{
+  justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: row;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
 .Registration{
   width: 100px;
   justify-content: center;
@@ -98,6 +130,38 @@ input{
 }
 
 
+.info{
+  justify-content: space-around;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: row;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
+
+nav{
+  justify-content: space-around;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: row;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
 
 
 @media screen and (orientation: landscape){

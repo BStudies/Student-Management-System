@@ -18,13 +18,22 @@ class Home extends Component{
             [name]: value
         })
     }
+    handleAccountTypeInputChange = e => {
+        e.preventDefault()
+        console.log(e.target)
+        let name = e.target.name
+        let value = e.target.className
+        this.setState({
+            [name]: value
+        })
+    }
     // date_of_birth first_name last_name emergency_contact
 
     handleRegistrationFormSubmit = (e) => {
         e.preventDefault()
         // console.log("this is where we handle registration")
         
-        axios.post('/students', {
+        axios.post(`/${this.state.accountType}`, {
             user: {
                 username: this.state.username,
                 email: this.state.email,
@@ -65,6 +74,18 @@ class Home extends Component{
                     <div className="Registration">
                         <h3>Registration</h3>
                         <form onSubmit={e => this.handleRegistrationFormSubmit(e)}>
+                            <div className="accountType">
+                                <div className="accountTypeSelection">
+                                    <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="admins" name="accountType"></input> Admin
+                                </div>
+                                <div className="accountTypeSelection">
+                                    <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="professors" name="accountType"></input> Professor
+                                </div>
+                                 <div className="accountTypeSelection">
+                                    <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="students" name="accountType"></input> Student
+                                </div>
+                            </div>
+                            
                             <input onChange={e=>this.handleInputChange(e)} type="text" name="first_name" placeholder='First Name'/>
                             <input onChange={e=>this.handleInputChange(e)} type="text" name="last_name" placeholder='Last Name'/>
                             <input onChange={e=>this.handleInputChange(e)} type="email" name="email" placeholder='Email'/>

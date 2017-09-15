@@ -9,6 +9,9 @@ import { Redirect } from 'react-router';
 
 // components
 import Home from './components/Home'
+import StudentProfile from './components/StudentProfile'
+import Nav from './components/Nav'
+
 
 class App extends Component {
   constructor(){
@@ -49,7 +52,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Nav/>
           <Route exact path="/" render={ () => <Home handleRedirect={this.handleRedirect}/>}/>
+          <Route exact path="/students/profile" render={ () => <StudentProfile handleRedirect={this.handleRedirect}/>}/>
+
            {this.redirectTo()} 
         </div>
       </Router>
