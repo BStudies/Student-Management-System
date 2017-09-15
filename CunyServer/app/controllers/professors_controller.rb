@@ -34,4 +34,17 @@ class ProfessorsController < PeopleController
             render json: "Not a student"
         end
     end
+
+
+
+
+
+    def courses
+        professor_courses = current_user.person.professor.courses
+        render json: {
+            message: "hit route", 
+            courses: professor_courses,
+        }
+    end
+    
 end

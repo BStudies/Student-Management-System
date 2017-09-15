@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # resources :users, only: [:index, :new, :show]
   # resources :users
   # authentication routes
+  # direct routes
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/student/profile", to: "students#profile"
@@ -10,8 +11,11 @@ Rails.application.routes.draw do
   get "/admin/profile", to: "admins#profile"
 
 
-  resources :students
+  # professor courses
+  get "/professor/profile/courses", to: "professors#courses"
 
+  # resources
+  resources :students
   # always leave commented unless need to make a new admin
   resources :admins
   resources :professors
