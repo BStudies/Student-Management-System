@@ -6,9 +6,9 @@ class StudentsController < PeopleController
         @student.person_id = @person.id
         if @student.save
         # render json: @user, status: :created, location: @user
-        render json: {token: @user.auth_token}
+            render json: {token: @user.auth_token}
         else
-        render json: @user.errors, status: :unprocessable_entity
+            render json: @user.errors, status: :unprocessable_entity
         end
     end
 

@@ -18,6 +18,92 @@
   font-size: large;
 }
 
+
+.auth-forms{
+  justify-content: space-around;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: row;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+    order: auto;
+}
+
+
+form{
+  justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
+input{
+  margin: 4px;
+  text-align: center;
+}
+
+
+.Registration{
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+.divider{
+  background-color: red;
+  height: 90px;
+  width: 5px;
+  border-radius: 100%;
+}
+.Login{
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
+
+
+
+@media screen and (orientation: landscape){
+
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -1,0 +1,180 @@
+Started POST "/students" for 127.0.0.1 at 2017-09-15 09:59:46 -0400
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{}, "person"=>{}, "firstName"=>"Brandon", "lastName"=>"Hew", "email"=>"digihew@gmail.com", "userName"=>"test", "password"=>"[FILTERED]", "dob"=>"1991-09-14", "emergencyContact"=>"9177671779", "student"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:65:in `user_params'
+app/controllers/users_controller.rb:31:in `create'
+app/controllers/people_controller.rb:3:in `create'
+app/controllers/students_controller.rb:4:in `create'
+Started POST "/students" for 127.0.0.1 at 2017-09-15 10:01:42 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{"password"=>"[FILTERED]"}, "person"=>{"emergencyContact"=>"9"}, "student"=>{}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:32:in `create'
+app/controllers/people_controller.rb:3:in `create'
+app/controllers/students_controller.rb:4:in `create'
+Started POST "/students" for 127.0.0.1 at 2017-09-15 10:14:44 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{"userName"=>"test", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "person"=>{"date_of_birth"=>"0001-01-02", "first_name"=>"test", "last_name"=>"test", "emergency_contact"=>"9"}, "student"=>{}}
+Unpermitted parameter: :userName
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:32:in `create'
+app/controllers/people_controller.rb:3:in `create'
+app/controllers/students_controller.rb:4:in `create'
+Started POST "/students" for 127.0.0.1 at 2017-09-15 10:15:59 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{"username"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "person"=>{"date_of_birth"=>"0001-01-01", "first_name"=>"a", "last_name"=>"a", "emergency_contact"=>"9"}, "student"=>{}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:32:in `create'
+app/controllers/people_controller.rb:3:in `create'
+app/controllers/students_controller.rb:4:in `create'
+Started POST "/students" for 127.0.0.1 at 2017-09-15 10:17:04 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{"username"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "person"=>{"date_of_birth"=>"0001-01-01", "first_name"=>"a", "last_name"=>"a", "emergency_contact"=>"9"}, "student"=>{}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.9ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:32:in `create'
+app/controllers/people_controller.rb:3:in `create'
+app/controllers/students_controller.rb:4:in `create'
+Started POST "/students" for 127.0.0.1 at 2017-09-15 10:17:30 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{"username"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "person"=>{"date_of_birth"=>"0001-01-01", "first_name"=>"a", "last_name"=>"a", "emergency_contact"=>"9"}, "student"=>{}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:3:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+app/controllers/users_controller.rb:32:in `create'
+app/controllers/people_controller.rb:3:in `create'
+app/controllers/students_controller.rb:4:in `create'
+Started POST "/students" for 127.0.0.1 at 2017-09-15 10:18:08 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"user"=>{"username"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "person"=>{"date_of_birth"=>"0001-01-01", "first_name"=>"a", "last_name"=>"a", "emergency_contact"=>"9"}, "student"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (12.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (13.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "auth_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "a"], ["password_digest", "$2a$10$.shGxKTNegYOGZgj6rKtu.NLrl3bGHCf.FyogTcG/JOSSlwZxhrV2"], ["email", "a@a.com"], ["auth_token", "L6EEg4m6tiAGuCTPqdmk3tDX"], ["created_at", "2017-09-15 14:18:08.870369"], ["updated_at", "2017-09-15 14:18:08.870369"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (25.7ms)[0m  [1m[32mINSERT INTO "people" ("user_id", "date_of_birth", "first_name", "last_name", "emergency_contact", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 5], ["date_of_birth", "0001-01-01"], ["first_name", "a"], ["last_name", "a"], ["emergency_contact", "9"], ["created_at", "2017-09-15 14:18:08.930552"], ["updated_at", "2017-09-15 14:18:08.930552"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "students" ("person_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["person_id", 3], ["created_at", "2017-09-15 14:18:08.970090"], ["updated_at", "2017-09-15 14:18:08.970090"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 207ms (Views: 0.4ms | ActiveRecord: 75.7ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:27:01 -0400
+Processing by SessionsController#create as HTML
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:27:11 -0400
+  Parameters: {"password"=>"[FILTERED]", "session"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Processing by SessionsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]", "session"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:28:27 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]", "session"=>{"password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `put' for #<SessionsController:0x007fe48c4799b0>
+Did you mean?  puts
+               putc):
+  
+app/controllers/sessions_controller.rb:5:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:28:41 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]", "session"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:30:15 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]", "session"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:31:59 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "ygDbPFJfaUd4tWMxAxBKS2ut"], ["updated_at", "2017-09-15 14:31:59.493778"], ["id", 5]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 85ms (Views: 0.3ms | ActiveRecord: 11.1ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:32:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "nVafdA4xKHWEQpYrYgcLjgAc"], ["updated_at", "2017-09-15 14:32:24.575516"], ["id", 5]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 87ms (Views: 0.2ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 10:33:01 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "412MTKuhTc3xzXfp3gnPzbmv"], ["updated_at", "2017-09-15 14:33:02.069537"], ["id", 5]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 73ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+

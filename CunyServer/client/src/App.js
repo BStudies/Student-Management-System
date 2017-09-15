@@ -15,15 +15,42 @@ class App extends Component {
     super();
     this.state = {
       auth: Auth.isUserAuthenticated(),
-      shouldRedirect: false,
+      redirect: false,
+      redirecting: '',
     }
   }
+
+
+
+  // pulled redirect from my project 3
+  handleRedirect = (path) => {
+    this.setState({
+      redirect: true,
+      redirecting: path,
+    })
+    console.log(`The path is: ` + path)
+
+  }
+// for rendering the path
+  redirectTo = () => {
+    if(this.state.redirect){
+      console.log('redirect')
+      this.setState({
+        redirect: false,
+      })
+      return(<Redirect to={this.state.redirecting}/>)
+    }
+  }
+
+
+
+
   render() {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/" render={ () => <Home/>}/>
-          {/* {this.redirectTo()} */}
+          <Route exact path="/" render={ () => <Home handleRedirect={this.handleRedirect}/>}/>
+           {this.redirectTo()} 
         </div>
       </Router>
       
