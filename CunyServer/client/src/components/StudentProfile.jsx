@@ -14,6 +14,13 @@ class StudentProfile extends Component{
 
     componentDidMount(){
         // console.log('mounted')
+        // axios('/courses', {
+        //     method: 'GET',
+        //     headers: {
+        //         'Authorization': `Token ${Auth.getToken()}`,
+        //         token: `${Auth.getToken()}`,
+        //     }
+        // })
     }
 
     render(){

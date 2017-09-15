@@ -10,9 +10,12 @@ class StudentCourses extends Component{
     }
 
     componentDidMount(){
-        axios.get('/courses', {
-            headers: {},
-            
+        axios('/courses', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${Auth.getToken()}`,
+                token: `${Auth.getToken()}`,
+            }
         })
 
     }
