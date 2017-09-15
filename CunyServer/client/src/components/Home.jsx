@@ -46,6 +46,12 @@ class Home extends Component{
                 emergency_contact: this.state.emergency_contact,
             }
         })
+        .then(res => {
+            console.log(res)
+            console.log("User created")
+            Auth.authenticateToken(res.data.token)
+            this.props.handleRedirect('/students/profile')
+        })
 
     }
     handleLoginFormSubmit = (e) => {

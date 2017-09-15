@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Auth from './modules/Auth'
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Redirect } from 'react-router';
 
 
@@ -10,8 +10,10 @@ import { Redirect } from 'react-router';
 // components
 import Home from './components/Home'
 import StudentProfile from './components/StudentProfile'
-import Nav from './components/Nav'
+import StudentCourses from './components/StudentCourses'
 
+import Nav from './components/Nav'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   constructor(){
@@ -46,15 +48,23 @@ class App extends Component {
   }
 
 
+  handleIncorrectPath = () => {
+    // if(this)
+  }
 
+  
 
   render() {
     return (
       <Router>
         <div className="App">
-          <Nav/>
-          <Route exact path="/" render={ () => <Home handleRedirect={this.handleRedirect}/>}/>
-          <Route exact path="/students/profile" render={ () => <StudentProfile handleRedirect={this.handleRedirect}/>}/>
+          <Nav handleRedirect={this.handleRedirect}/>
+          <Switch>
+            <Route exact path="/" render={ () => <Home handleRedirect={this.handleRedirect}/>}/>
+            <Route exact path="/students/profile" render={ () => <StudentProfile handleRedirect={this.handleRedirect}/>}/>
+            <Route exact path="/student/profile/courses" render={ () => <StudentCourses handleRedirect={this.handleRedirect}/>}/>
+            <Route exact path="*" render={() => <NotFound/>}/>
+          </Switch>
 
            {this.redirectTo()} 
         </div>

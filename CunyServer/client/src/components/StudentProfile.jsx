@@ -22,13 +22,13 @@ class StudentProfile extends Component{
                 <h1>Students Profile</h1>
                 <div className="info">
                     <div className="Personalinfo">
-                        <h3><Link className='nav-link' Link to="/courses">My Courses</Link></h3>
+                        <h3><Link className='nav-link' Link to="/student/profile/courses">My Courses</Link></h3>
                         <h3><Link className='nav-link' Link to="/finances">My Finances</Link></h3>
                     </div>
 
                     <div className="Globalinfo">
-                        <h3>Course Catalog</h3>
-                        <h3>Finantial Options</h3>
+                        <h3><Link className='nav-link' Link to="/courses/index">Course Catalog</Link></h3>
+                        <h3><Link className='nav-link' Link to="/finances">Finantial Options</Link></h3>
                     </div>
                 </div>
                 
