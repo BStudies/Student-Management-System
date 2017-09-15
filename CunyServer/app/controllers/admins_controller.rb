@@ -1,9 +1,9 @@
-class AdminsController < UsersController
+class AdminsController < PeopleController
     # POST /admins
   def create
     super
     @admin = Admin.new()
-    @admin.user_id = @user.id
+    @admin.person_id = @person.id
     @admin.save
     # if @user.save
     #   # render json: @user, status: :created, location: @user
