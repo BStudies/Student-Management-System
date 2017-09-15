@@ -1,32 +1,45 @@
 import React, { Component } from 'react';
 import Auth from '../modules/Auth'
 import {Link} from 'react-router-dom';
-
-
+import axios from 'axios'
+import Loading from './Loading'
 
 class StudentProfile extends Component{
     constructor(){
         super();
         this.state = {
-
+            user: null,
+            mounted: false,
         }
     }
 
     componentDidMount(){
         // console.log('mounted')
-        // axios('/courses', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Authorization': `Token ${Auth.getToken()}`,
-        //         token: `${Auth.getToken()}`,
-        //     }
-        // })
+        axios('/student/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${Auth.getToken()}`,
+                token: `${Auth.getToken()}`,
+            }
+        })
+        .then(res => {
+            console.log(res)
+            this.setState({
+                user: res.data.user,
+                mounted: true,
+            })
+        })
     }
 
+
+
     render(){
+        if(!this.state.mounted){
+            return <Loading/>
+        }
         return (
             <div>
-                <h1>Students Profile</h1>
+                <h1>{this.state.user.person.first_name}'s Profile</h1>
                 <div className="info">
                     <div className="Personalinfo">
                         <h3><Link className='nav-link' Link to="/student/profile/courses">My Courses</Link></h3>

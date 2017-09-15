@@ -1,4 +1,6 @@
 class StudentsController < PeopleController
+    # before_action :require_login, except: [:create]
+
     # POST /students
     def create
         super

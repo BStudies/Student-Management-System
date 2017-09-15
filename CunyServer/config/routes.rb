@@ -16,9 +16,9 @@ Rails.application.routes.draw do
   resources :admins
   resources :professors
   resources :courses
-  resources :grades
-  resources :payment_types
-  resources :financial_accounts
+  # resources :grades
+  # resources :payment_types
+  # resources :financial_accounts
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

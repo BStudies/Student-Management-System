@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import Auth from '../modules/Auth'
+import Loading from './Loading'
 
 class StudentCourses extends Component{
     constructor(){
