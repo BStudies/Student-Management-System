@@ -3139,3 +3139,435 @@ Filter chain halted as :require_professor rendered or redirected
 Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/professor/profile" for 127.0.0.1 at 2017-09-15 16:37:56 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "m2wzxWVFCo4Q4NZD6BMXbCSZ"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "m2wzxWVFCo4Q4NZD6BMXbCSZ"], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "m2wzxWVFCo4Q4NZD6BMXbCSZ"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-09-15 16:37:59 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "m2wzxWVFCo4Q4NZD6BMXbCSZ"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "m2wzxWVFCo4Q4NZD6BMXbCSZ"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "m2wzxWVFCo4Q4NZD6BMXbCSZ"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:38:10 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "X"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "RZQgvU49cfqRkRPfacuuS6wG"], ["updated_at", "2017-09-15 20:38:10.431591"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 1.8ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:38:14 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"x", "password"=>"[FILTERED]", "session"=>{"username"=>"x", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "x"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mProfessor Load (0.6ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" ORDER BY "professors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" ORDER BY "professors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.5ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" ORDER BY "professors"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:38:58 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 67ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:03 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 71ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:05 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "X"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "5cbFsBxR25VGKAe9WCRN4QxN"], ["updated_at", "2017-09-15 20:39:05.710447"], ["id", 1]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 9.7ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:09 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 73ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:11 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 71ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:18 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 71ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:19 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 66ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:21 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 75ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:22 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 67ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:23 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 78ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 76ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:24 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 66ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:25 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 70ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:26 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 71ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:27 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 74ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:31 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 74ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:32 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "X"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "yFGE1sJ9rQvqLy1Eb2BLjGs1"], ["updated_at", "2017-09-15 20:39:33.037231"], ["id", 1]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 8.7ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:34 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 75ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:39 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 67ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:42 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 77ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:44 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"X", "password"=>"[FILTERED]", "session"=>{"username"=>"X", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "X"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 71ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:39:51 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"digihew", "password"=>"[FILTERED]", "session"=>{"username"=>"digihew", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "digihew"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "digihew"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "up3LLGr9kgZuRopXpydRDfCw"], ["updated_at", "2017-09-15 20:39:52.006466"], ["id", 2]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 9.7ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:40:13 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/professors" for 127.0.0.1 at 2017-09-15 16:40:28 -0400
+Processing by ProfessorsController#create as HTML
+  Parameters: {"user"=>{"username"=>"a", "email"=>"a@a.com", "password"=>"[FILTERED]"}, "person"=>{"date_of_birth"=>"0001-01-01", "first_name"=>"a", "last_name"=>"a", "emergency_contact"=>"a"}, "professor"=>{}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "auth_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "a"], ["password_digest", "$2a$10$jI1IjkFSJcRjjDQzZL1f3ul2210YZ.PudUT68xnnlxs9QzXG5TFcq"], ["email", "a@a.com"], ["auth_token", "fsCMPPBamhPqHmNtJQwA2T2q"], ["created_at", "2017-09-15 20:40:28.892983"], ["updated_at", "2017-09-15 20:40:28.892983"]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "people" ("user_id", "date_of_birth", "first_name", "last_name", "emergency_contact", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 3], ["date_of_birth", "0001-01-01"], ["first_name", "a"], ["last_name", "a"], ["emergency_contact", "a"], ["created_at", "2017-09-15 20:40:28.904982"], ["updated_at", "2017-09-15 20:40:28.904982"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "professors" ("person_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["person_id", 3], ["created_at", "2017-09-15 20:40:28.910625"], ["updated_at", "2017-09-15 20:40:28.910625"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 106ms (Views: 0.2ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/professor/profile" for 127.0.0.1 at 2017-09-15 16:40:28 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "fsCMPPBamhPqHmNtJQwA2T2q"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "fsCMPPBamhPqHmNtJQwA2T2q"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "fsCMPPBamhPqHmNtJQwA2T2q"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 3], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 0.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:40:32 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "1QmSLHSJ9BDXfCaabQNbuGnM"], ["updated_at", "2017-09-15 20:40:32.769980"], ["id", 3]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 9.1ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:40:40 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "iyTR3ieA4613G7cxcdW4KyHx"], ["updated_at", "2017-09-15 20:40:40.697104"], ["id", 3]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 9.6ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:41:06 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "pUbaVNwT97p4GYZywVt7LNjJ"], ["updated_at", "2017-09-15 20:41:06.352746"], ["id", 3]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 9.5ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:41:07 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "fkogXQsCUgyapRBqYMEd89Ts"], ["updated_at", "2017-09-15 20:41:07.492941"], ["id", 3]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 9.5ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.3ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:45:41 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "kPnqhKErLqGhDFs5muXshrkj"], ["updated_at", "2017-09-15 20:45:41.682412"], ["id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 1.6ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:45:42 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "gix1ZmA4zGTq4g9GnBVk9d8o"], ["updated_at", "2017-09-15 20:45:42.820780"], ["id", 3]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 9.4ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+Started POST "/login" for 127.0.0.1 at 2017-09-15 16:45:43 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "apVcyNVHfChXUEaS2wWo71wv"], ["updated_at", "2017-09-15 20:45:43.599906"], ["id", 3]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 9.5ms)
+
+
+  
+NoMethodError (undefined method `person' for nil:NilClass):
+  
+app/controllers/api_controller.rb:32:in `is_student?'
+app/controllers/api_controller.rb:36:in `userType'
+app/controllers/sessions_controller.rb:22:in `send_token_for_valid_login_of'
+app/controllers/sessions_controller.rb:8:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.4ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
