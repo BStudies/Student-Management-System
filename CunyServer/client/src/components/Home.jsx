@@ -50,7 +50,7 @@ class Home extends Component{
             console.log(res)
             console.log("User created")
             Auth.authenticateToken(res.data.token)
-            this.props.handleRedirect('/students/profile')
+            this.props.handleRedirect(`/${res.data.accountType}/profile`)
         })
 
     }

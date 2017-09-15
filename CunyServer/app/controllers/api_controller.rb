@@ -10,15 +10,25 @@ class ApiController < ApplicationController
     end
 
     def is_admin?
-        Admin.find(current_user.id)
+        current_user.person.admin != nil
     end
 
     def is_professor?
-        Professor.find(current_user.id)
+        current_user.person.professor != nil
     end
     
     def is_student?
-        Student.find(current_user.id)
+        current_user.person.student != nil
+    end
+    
+    def userType
+        if is_student?
+            return :students
+        elsif is_professor?
+            return :professors
+        elsif is_admin?
+            return :admins
+        end
     end
     
     

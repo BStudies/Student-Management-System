@@ -5,10 +5,10 @@ class StudentsController < PeopleController
     def create
         super
         @student = Student.new()
-        @student.person_id = @person.id
+        @student.person = @person
         if @student.save
         # render json: @user, status: :created, location: @user
-            render json: {token: @user.auth_token}
+            render json: {token: @user.auth_token, accountType: :students}
         else
             render json: @user.errors, status: :unprocessable_entity
         end
@@ -44,7 +44,6 @@ class StudentsController < PeopleController
 
     private
     def student_params
-      # params.fetch(:user, {})
     #   params.require(:student).permit(:date_of_birth, :first_name, :last_name, :emergency_contact)
     end
 end

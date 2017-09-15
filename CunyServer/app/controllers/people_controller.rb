@@ -2,7 +2,7 @@ class PeopleController < UsersController
     def create
         super
         @person = Person.new(people_params)
-        @person.user_id = @user.id
+        @person.user = @user
         @person.save
         # if @person.save
         # # render json: @user, status: :created, location: @user

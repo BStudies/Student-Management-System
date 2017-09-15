@@ -106,8 +106,10 @@ ActiveRecord::Schema.define(version: 20170914204337) do
   end
 
   create_table "professors", force: :cascade do |t|
+    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_professors_on_person_id"
   end
 
   create_table "scholarship_accounts", force: :cascade do |t|
