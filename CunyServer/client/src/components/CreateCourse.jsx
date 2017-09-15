@@ -28,6 +28,7 @@ class CreateCourse extends Component{
         })
         .then(res => {
             console.log(res)
+            this.props.handleRedirect('/')
         })
     }
 
