@@ -17,12 +17,19 @@ class Nav extends Component{
                 </button>
             )
         }
-        return
+        return (<button onClick={e => {
+                        this.props.handleRedirect('/')
+                    }
+                    }>
+                    Login
+                </button>)
     }
     render(){
         return(
             <nav>
-                <Link className='nav-link' Link to="/students/profile">My Profile</Link>
+                <Link className='nav-link' Link to="/students/profile">My Student Profile</Link>
+                <Link className='nav-link' Link to="/professors/profile">My Professor Profile</Link>
+
                 {this.logoutView()}
             </nav>
         )

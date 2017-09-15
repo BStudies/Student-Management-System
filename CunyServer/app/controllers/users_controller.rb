@@ -20,7 +20,7 @@ class UsersController < ApiController
       user: {
         username: @user.username, 
         email: @user.email, 
-        name: @user.name}
+        }
       }
   end
   

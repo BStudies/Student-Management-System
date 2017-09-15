@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170914204337) do
   create_table "courses", force: :cascade do |t|
     t.bigint "professor_id"
     t.string "name"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["professor_id"], name: "index_courses_on_professor_id"

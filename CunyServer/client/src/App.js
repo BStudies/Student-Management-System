@@ -11,9 +11,18 @@ import { Redirect } from 'react-router';
 import Home from './components/Home'
 import StudentProfile from './components/StudentProfile'
 import StudentCourses from './components/StudentCourses'
+import ProfessorProfile from './components/ProfessorProfile'
+import CreateCourse from './components/CreateCourse'
+import Loading from './components/Loading'
+
 
 import Nav from './components/Nav'
 import NotFound from './components/NotFound'
+
+
+
+
+
 
 class App extends Component {
   constructor(){
@@ -61,8 +70,18 @@ class App extends Component {
           <Nav handleRedirect={this.handleRedirect}/>
           <Switch>
             <Route exact path="/" render={ () => <Home handleRedirect={this.handleRedirect}/>}/>
+            {/*profiles*/}
             <Route exact path="/students/profile" render={ () => <StudentProfile handleRedirect={this.handleRedirect}/>}/>
             <Route exact path="/student/profile/courses" render={ () => <StudentCourses handleRedirect={this.handleRedirect}/>}/>
+            <Route exact path="/professors/profile" render={ () => <ProfessorProfile handleRedirect={this.handleRedirect}/>}/>
+            
+            {/*creation*/}
+            <Route exact path="/create-course" render={ () => <CreateCourse handleRedirect={this.handleRedirect}/>}/>
+            
+
+
+            <Route exact path="/loading" render={ () => <Loading handleRedirect={this.handleRedirect}/>}/>
+
             <Route exact path="*" render={() => <NotFound/>}/>
           </Switch>
 

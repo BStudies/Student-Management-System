@@ -168,7 +168,9 @@ This app would be a remake of the current cuny system as it is not synched well 
 
 # Pre challenges
 * Making multiple servers talk to eachother
-
+* SPA page routes are viewable to everyone, so how to make this less of an issue
+    * By allowing teachers to be students, we add functionality to spa's allowing any user to access a path, the trick will be the data coming from the server side
+    * This project would have been better as a non spa because of this issue, however SPA's have better user experience
 
 
 

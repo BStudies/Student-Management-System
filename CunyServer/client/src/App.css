@@ -162,6 +162,28 @@ nav{
 	flex-wrap: auto;
   order: auto;
 }
+.LoadingScreen{
+  justify-content: space-around;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
+.loadingCircle{
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
 
 
 @media screen and (orientation: landscape){
@@ -171,4 +193,8 @@ nav{
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes Grow-And-Shrink{
+  /*from {size: }*/
 }

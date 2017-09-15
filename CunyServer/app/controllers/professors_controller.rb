@@ -11,4 +11,27 @@ class ProfessorsController < PeopleController
             render json: @user.errors, status: :unprocessable_entity
         end
     end
+
+    def profile
+        puts "Current user"
+        puts current_user
+        # super
+        if is_student? != nil
+            puts "headers"
+            puts request.headers
+            @user = User.find_by_auth_token!(request.headers[:token])
+            puts @user
+            person = @user.person 
+            student = person.student
+            render json: {
+                user: {
+                    username: @user.username, 
+                    email: @user.email, 
+                    person: person
+                }
+            }
+        else
+            render json: "Not a student"
+        end
+    end
 end

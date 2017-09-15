@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 class Auth{
     // https://vladimirponomarev.com/blog/authentication-in-react-apps-jwt
     static authenticateToken(token){
@@ -15,8 +17,6 @@ class Auth{
     static getToken(){
         return sessionStorage.getItem('token');
     }
-
-
 }
 
 
