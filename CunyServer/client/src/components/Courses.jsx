@@ -19,7 +19,6 @@ class Courses extends Component{
     render(){
         return(
             <div>
-                <h3>Course:</h3>
                 {this.handleCoursesList()}
             </div>
         )

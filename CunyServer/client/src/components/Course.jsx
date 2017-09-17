@@ -11,9 +11,9 @@ class Course extends Component{
 
     displayCourse = () => {
         return(
-            <div>
-                <h3>Course:</h3>{this.props.course.name}
-                <h5>Description:</h5>{this.props.course.description}
+            <div className="course">
+                <h3>Course: {this.props.course.name}</h3>
+                <h5>Description: {this.props.course.description}</h5>
             </div>
             
         )

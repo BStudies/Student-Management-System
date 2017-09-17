@@ -185,6 +185,10 @@ nav{
   border-radius: 50%;
 }
 
+.course{
+	background-color: #FFE6DF;
+}
+
 
 @media screen and (orientation: landscape){
 
