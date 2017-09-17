@@ -3,14 +3,16 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Auth from '../modules/Auth'
 import {Redirect } from 'react-router'
-
+import Loading from './Loading'
 
 
 
 class Home extends Component{
     constructor(){
         super();
-        this.state = {}
+        this.state = {
+            loading: false,
+        }
     }
 
     // username email password
@@ -36,7 +38,9 @@ class Home extends Component{
     handleRegistrationFormSubmit = (e) => {
         e.preventDefault()
         // console.log("this is where we handle registration")
-        
+        this.setState({
+            loading: true,
+        })
         axios.post(`/${this.state.accountType}`, {
             user: {
                 username: this.state.username,
@@ -51,6 +55,9 @@ class Home extends Component{
             }
         })
         .then(res => {
+            this.setState({
+                loading: false,
+            })
             console.log(res)
             console.log("User created")
             Auth.authenticateToken(res.data.token)
@@ -61,6 +68,7 @@ class Home extends Component{
     handleLoginFormSubmit = (e) => {
         e.preventDefault()
         // console.log("this is where we handle login")
+
         axios.post('/login', {
             username: this.state.username,
             password: this.state.password
@@ -74,11 +82,19 @@ class Home extends Component{
     }
 
 
+    handleLoadingScreen = e => {
+        if(this.state.loading){
+            return <Loading/>
+        }
+    }
+
+
 
     render(){
         if(!Auth.isUserAuthenticated()){
             return(
                 <div>
+                    {this.handleLoadingScreen()}
                     <h1>Welcome To Cuny</h1>
                 
                     <div className="auth-forms">

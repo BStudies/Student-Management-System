@@ -1,5 +1,7 @@
 class ProfessorsController < PeopleController
     # POST /professors
+    before_action :require_professor, except: [:create]
+    
     def create
         super
         @professor = Professor.new()

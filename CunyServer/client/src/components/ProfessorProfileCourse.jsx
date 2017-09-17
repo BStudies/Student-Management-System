@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Auth from '../modules/Auth'
 import Loading from './Loading'
+import Courses from './Courses'
 class ProfessorProfileCourse extends Component{
 
     constructor(){
@@ -24,12 +25,15 @@ class ProfessorProfileCourse extends Component{
         })
         .then(res => {
             console.log(res)
+            // console.log(res.data.courses)
             this.setState({
                 user: res.data.user,
                 mounted: true,
+                courses: res.data.courses
             })
         })
     }
+
 
 
 
@@ -38,6 +42,7 @@ class ProfessorProfileCourse extends Component{
             return(
                 <div>
                     <h1>Professors Courses</h1>
+                    <Courses courses={this.state.courses}/>
                 </div>
             )
         }
