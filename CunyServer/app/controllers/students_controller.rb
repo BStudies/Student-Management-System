@@ -77,20 +77,23 @@ class StudentsController < PeopleController
 
     # update finances
     def update_out_of_pocket
-        current_user.person.student.payment_types[0].out_of_pocket.update({value: out_of_pocket_params}) 
+        current_user.person.student.payment_types[0].out_of_pocket.update(out_of_pocket_params)
+        render json: {
+            message: "Success"
+        } 
     end
 
     def update_fafsa 
-        current_user.person.student.payment_types[0].fafsa.update({value: new_total})
+        current_user.person.student.payment_types[0].fafsa.update(new_total)
     end
     def update_tap 
-        current_user.person.student.payment_types[0].tap.update({value: new_total})
+        current_user.person.student.payment_types[0].tap.update(new_total)
     end
     def update_scholarship 
-        current_user.person.student.payment_types[0].scholarship.update({value: new_total})
+        current_user.person.student.payment_types[0].scholarship.update(new_total)
     end
     def update_loan 
-        current_user.person.student.payment_types[0].loan.update({value: new_total})
+        current_user.person.student.payment_types[0].loan.update(new_total)
     end
     
      

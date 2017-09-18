@@ -23,7 +23,7 @@ class StudentFinances extends Component{
             },
         })
         .then(res => {
-            // console.log(res)
+            console.log(res)
             this.setState({
                 loading: false,
                 finances: res.data.finances
@@ -36,6 +36,7 @@ class StudentFinances extends Component{
 
 
     handleInputChange = (e) => {
+        console.log(e.target)
         let name = e.target.name;
         let value = e.target.value;
         this.setState({
@@ -45,7 +46,9 @@ class StudentFinances extends Component{
 
 
 
-    handlePay = () => {
+    handlePay = (e) => {
+        e.preventDefault()
+        console.log(this.state.out_of_pocket)
         axios('/students/finance/out_of_pocket',{
             method: 'PUT',
             headers: {
@@ -53,8 +56,11 @@ class StudentFinances extends Component{
                 token: `${Auth.getToken()}`,
             },
             data: {
-                // course_id: this.state.course.id
+                value: this.state.out_of_pocket
             }
+        })
+        .then(res => {
+            this.props.handleRedirect('/')
         })
     }
 
@@ -69,15 +75,18 @@ class StudentFinances extends Component{
                 <h1>Student Finances</h1>
                 <h2>Tutition Total: {this.state.tuition}</h2>
                 <div className="outOfPocket">
-                    <h3>Paid: <input onChange={e => {this.handleInputChange()}} type="text" name="value" value={this.state.finances.out_of_pocket}/></h3>
-                    <button onClick={e => {this.handlePay()}}>Update</button>
+                    <form onSubmit={e => {this.handlePay(e)}}>
+                        <h3>Paid: <input onChange={e => {this.handleInputChange(e)}} type="number" name="out_of_pocket" placeholder={this.state.finances.out_of_pocket}/></h3>
+                        <input type="submit" value="Update"/>
+                    </form>
+                    
                 </div>
                 
                 <h3>Fafsa: {this.state.finances.fafsa}</h3>
                 <h3>Tap: {this.state.finances.tap}</h3>
                 <h3>Scholarships: {this.state.finances.scholarship}</h3>
                 <h3>Loans: {this.state.finances.loan}</h3>
-                <h3>Total: {this.state.finances.fafsa + this.state.finances.tap + this.state.finances.scholarship + this.state.finances.loan}</h3>
+                <h3>Total: {this.state.finances.out_of_pocket + this.state.finances.fafsa + this.state.finances.tap + this.state.finances.scholarship + this.state.finances.loan}</h3>
             </div>
         )
     }
