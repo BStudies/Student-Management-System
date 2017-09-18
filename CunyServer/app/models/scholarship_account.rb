@@ -1,2 +1,2 @@
-class ScholarshipAccount < ApplicationRecord
+class ScholarshipAccount < FinancialAccount
 end

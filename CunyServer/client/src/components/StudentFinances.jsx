@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 
 class StudentFinances extends Component{
+
+    handlePay = () => {
+
+    }
     render(){
         return(
             <div>
@@ -9,7 +13,7 @@ class StudentFinances extends Component{
                 <h2>Tutition Total: 15,000</h2>
                 <div className="outOfPocket">
                     <h3>Paid: 5,000</h3>
-                    <button>Change Pay</button>
+                    <button onClick={this.handlePay()}>Pay</button>
                 </div>
                 
                 <h3>Fafsa: 3,000</h3>

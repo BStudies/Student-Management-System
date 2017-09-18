@@ -1,2 +1,2 @@
-class LoanAccount < ApplicationRecord
+class LoanAccount < FinancialAccount
 end

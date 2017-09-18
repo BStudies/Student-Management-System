@@ -6,6 +6,7 @@ class StudentsController < PeopleController
         super
         @student = Student.new()
         @student.person = @person
+        payment_types = PaymentType.new()
         if @student.save
         # render json: @user, status: :created, location: @user
             render json: {token: @user.auth_token, accountType: :students}
@@ -48,6 +49,8 @@ class StudentsController < PeopleController
     end
 
 
+
+
     def courses
         puts "Courses******"
         puts current_user.person.student.courses
@@ -58,6 +61,29 @@ class StudentsController < PeopleController
     
     
 
+
+    # update finances
+    def update_out_of_pocket new_total
+        current_user.person.student.payment_types.out_of_pocket.update({value: new_total}) 
+    end
+
+    def update_fafsa new_total
+        current_user.person.student.payment_types.fafsa.update({value: new_total})
+    end
+    def update_tap new_total
+        current_user.person.student.payment_types.tap.update({value: new_total})
+    end
+    def update_scholarship new_total
+        current_user.person.student.payment_types.scholarship.update({value: new_total})
+    end
+    def update_loan new_total
+        current_user.person.student.payment_types.loan.update({value: new_total})
+    end
+    
+     
+
+
+     
 
     private
     def student_params

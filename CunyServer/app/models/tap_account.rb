@@ -1,2 +1,2 @@
-class TapAccount < ApplicationRecord
+class TapAccount < FinancialAccount
 end

@@ -25,14 +25,7 @@ class PaymentTypesController < ApplicationController
         o.payment_type = payment_type
         o.save!
 
-        payment_type.fafsa = 
-        payment_type.tap = 
-        payment_type.loan = 
-        payment_type.scholarship = 
-        payment_type.out_of_pocket = 
-        
-        fafsa.payment_type = payment_type
-        payment_type.fafsa = 
+        payment_type.save!        
     end 
     
 end
