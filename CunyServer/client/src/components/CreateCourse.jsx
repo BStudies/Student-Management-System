@@ -55,6 +55,9 @@ class CreateCourse extends Component{
                     <div>
                         Desciption: <textarea onChange={e => this.handleInputChange(e)} type="text" name="description" placeholder="This course covers algebra"/>
                     </div>
+                    <div>
+                        Cost: <input onChange={e => this.handleInputChange(e)} type="text" name="cost" placeholder="$$$"/>
+                    </div>
                     <input type="submit" value="submit"/>
                 </form>
             </div>
