@@ -15,9 +15,9 @@ import ProfessorProfile from './components/ProfessorProfile'
 import CreateCourse from './components/CreateCourse'
 import Loading from './components/Loading'
 import ProfessorProfileCourse from './components/ProfessorProfileCourse'
-
 import Nav from './components/Nav'
 import NotFound from './components/NotFound'
+import CourseIndex from './components/CourseIndex'
 
 
 
@@ -79,6 +79,7 @@ class App extends Component {
             <Route exact path="/create-course" render={ () => <CreateCourse handleRedirect={this.handleRedirect}/>}/>
             
             {/*viewing*/}
+            <Route exact path="/courses/index" render={ () => <CourseIndex handleRedirect={this.handleRedirect}/>}/>
             <Route exact path="/professors/profile/courses" render={ () => <ProfessorProfileCourse handleRedirect={this.handleRedirect}/>}/>
 
 

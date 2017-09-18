@@ -5512,3 +5512,123 @@ Processing by StudentsController#profile as HTML
 Completed 200 OK in 15ms (Views: 2.0ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/professor/profile/courses" for 127.0.0.1 at 2017-09-17 13:19:06 -0400
+Processing by ProfessorsController#courses as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."professor_id" = $1[0m  [["professor_id", 1]]
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/professor/profile/courses" for 127.0.0.1 at 2017-09-17 13:19:44 -0400
+Processing by ProfessorsController#courses as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."professor_id" = $1[0m  [["professor_id", 1]]
+Completed 200 OK in 12ms (Views: 4.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/professor/profile/courses" for 127.0.0.1 at 2017-09-17 13:19:52 -0400
+Processing by ProfessorsController#courses as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."professor_id" = $1[0m  [["professor_id", 1]]
+Completed 200 OK in 10ms (Views: 3.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:30:08 -0400
+  
+SyntaxError (C:/Users/B/Desktop/wdi/PROJECTS/Cuny_and_financial_project/Cuny-Replica/CunyServer/app/controllers/courses_controller.rb:2: syntax error, unexpected ','
+    before_action :require_professor, , only: [:create]
+                                       ^):
+  
+app/controllers/courses_controller.rb:2: syntax error, unexpected ','
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:30:28 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Completed 200 OK in 36ms (Views: 11.8ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:32:11 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:32:42 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:34:56 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-09-17 13:40:11 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 126ms (Views: 1.0ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:40:15 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/professor/profile" for 127.0.0.1 at 2017-09-17 13:40:28 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 75ms (Views: 1.8ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/professor/profile/courses" for 127.0.0.1 at 2017-09-17 13:40:35 -0400
+Processing by ProfessorsController#courses as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."professor_id" = $1[0m  [["professor_id", 1]]
+Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-09-17 13:40:43 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "XkYrbwetyijLDivGmvGeDtHU"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 3.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-09-17 13:40:46 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+

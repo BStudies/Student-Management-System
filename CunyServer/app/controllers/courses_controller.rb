@@ -1,5 +1,6 @@
 class CoursesController < ApiController
-    before_action :require_professor
+    before_action :require_professor, only: [:create]
+
     def create 
         course = Course.new(course_params)
         course.professor = current_user.person.professor
@@ -8,7 +9,10 @@ class CoursesController < ApiController
         end
     end
 
-
+    def index
+        courses = Course.all 
+        render json: {courses: courses}
+    end
 
     private
     def course_params
