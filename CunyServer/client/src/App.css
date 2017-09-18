@@ -189,6 +189,38 @@ nav{
 	background-color: #FFE6DF;
 }
 
+.upcoming{
+	justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
+.events{
+	justify-content: center;
+  align-items: center;
+  
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-direction: column;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
 
 @media screen and (orientation: landscape){
 

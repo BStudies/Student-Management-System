@@ -54,11 +54,12 @@ class ProfessorProfile extends Component{
                 
                 <div className="upcoming">
                     <h3>Upcoming</h3>
-                    <ul>
-                        <li>hw</li>
-                        <li>quiz</li>
-                        <li>midterm</li>
-                    </ul>
+                    =====
+                    <div className="events">
+                        <h5>hw</h5>
+                        <h5>quiz</h5>
+                        <h5>midterm</h5>
+                    </div>
                 </div>
             </div>
         
