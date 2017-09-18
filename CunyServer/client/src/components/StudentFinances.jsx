@@ -26,7 +26,8 @@ class StudentFinances extends Component{
             console.log(res)
             this.setState({
                 loading: false,
-                finances: res.data.finances
+                finances: res.data.finances,
+                total: res.data.finances.out_of_pocket + res.data.finances.fafsa + res.data.finances.tap + res.data.finances.scholarship + res.data.finances.loan
             })
         })
     }
@@ -86,7 +87,8 @@ class StudentFinances extends Component{
                 <h3>Tap: {this.state.finances.tap}</h3>
                 <h3>Scholarships: {this.state.finances.scholarship}</h3>
                 <h3>Loans: {this.state.finances.loan}</h3>
-                <h3>Total: {this.state.finances.out_of_pocket + this.state.finances.fafsa + this.state.finances.tap + this.state.finances.scholarship + this.state.finances.loan}</h3>
+                <h3>Total: {this.state.total}</h3>
+                <h3>Due: {this.state.tuition - this.state.total}</h3>
             </div>
         )
     }

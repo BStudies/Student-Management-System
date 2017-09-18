@@ -10129,3 +10129,143 @@ Processing by StudentsController#finances as HTML
 Completed 200 OK in 49ms (Views: 0.3ms | ActiveRecord: 28.8ms)
 
 
+Started PUT "/students/finance/out_of_pocket" for 127.0.0.1 at 2017-09-18 15:40:27 -0400
+Processing by StudentsController#update_out_of_pocket as HTML
+  Parameters: {"value"=>"5000", "student"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mOutOfPocket Load (0.1ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :student
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "out_of_pockets" SET "value" = $1, "updated_at" = $2 WHERE "out_of_pockets"."id" = $3[0m  [["value", 5000], ["updated_at", "2017-09-18 19:40:27.314001"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-09-18 15:40:27 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 1.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-18 15:40:29 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (0.2ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (0.2ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (0.2ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (0.2ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-18 15:42:31 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (0.2ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (0.2ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (0.2ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (0.2ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-18 15:42:40 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (0.2ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (0.2ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (0.2ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (0.2ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-18 15:43:32 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (7.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (6.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (2.8ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (8.6ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (7.1ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (2.1ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (3.8ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (2.4ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 0.2ms | ActiveRecord: 41.0ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-18 15:43:55 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (0.3ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (0.2ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (0.2ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (0.2ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started PUT "/students/finance/out_of_pocket" for 127.0.0.1 at 2017-09-18 15:44:03 -0400
+Processing by StudentsController#update_out_of_pocket as HTML
+  Parameters: {"value"=>"3000", "student"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mOutOfPocket Load (0.2ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :student
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "out_of_pockets" SET "value" = $1, "updated_at" = $2 WHERE "out_of_pockets"."id" = $3[0m  [["value", 3000], ["updated_at", "2017-09-18 19:44:03.088058"], ["id", 1]]
+  [1m[35m (7.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-09-18 15:44:03 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-18 15:44:04 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "mRrNdDwaRq7UbuZEs7LZEMA9"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (0.2ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (0.1ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (0.2ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (0.2ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
