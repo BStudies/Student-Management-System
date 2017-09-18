@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # posts
   post "/login", to: "sessions#create"
-
+  post "financial_account" to: "financial_accounts#create"
   # deletes
   delete "/logout", to: "sessions#destroy"
 

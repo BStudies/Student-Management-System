@@ -1,0 +1,3 @@
+class FafsasController < ApplicationController
+    
+end
