@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get "/student/profile/courses", to: "students#courses"
   get "/professor/profile", to: "professors#profile"
   get "/admin/profile", to: "admins#profile"
+  get "/professor/profile/courses", to: "professors#courses"
+  get "/students/finance", to: "students#finances"
+
 
   # posts
   post "/login", to: "sessions#create"
@@ -19,9 +22,10 @@ Rails.application.routes.draw do
 
   # updates
   put "/students/courses", to: "students#registerCourse"
+  put "/students/finance/out_of_pocket", to: "students#update_out_of_pocket"
 
-  # professor courses
-  get "/professor/profile/courses", to: "professors#courses"
+
+  
 
 
 

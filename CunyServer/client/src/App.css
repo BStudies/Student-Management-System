@@ -222,12 +222,12 @@ nav{
 }
 
 .outOfPocket{
-	justify-content: space-around;
+	justify-content: center;
   align-items: center;
   flex-direction: row;
 
-  align-content: auto;
-	align-self: auto;
+  align-content: center;
+	align-self: center;
 	display: flex;
 	flex-basis: auto;
 	flex-flow: auto;

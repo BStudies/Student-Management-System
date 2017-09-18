@@ -6,9 +6,35 @@ class StudentsController < PeopleController
         super
         @student = Student.new()
         @student.person = @person
-        payment_types = PaymentType.new()
+        
         if @student.save
         # render json: @user, status: :created, location: @user
+            payment_type = PaymentType.new()
+            payment_type.student = @student
+            payment_type.save!
+
+            #each need to be linked with respective accounts
+            f=Fafsa.new({value: 0})
+            f.payment_type = payment_type
+            f.save!
+
+            t=Tap.new({value: 0})
+            t.payment_type = payment_type
+            t.save!
+
+            l=Loan.new({value: 0})
+            l.payment_type = payment_type
+            l.save!
+
+            s=Scholarship.new({value: 0})
+            s.payment_type = payment_type
+            s.save!
+
+            o=OutOfPocket.new({value: 0});
+            o.payment_type = payment_type
+            o.save!
+
+            payment_type.save!    
             render json: {token: @user.auth_token, accountType: :students}
         else
             render json: @user.errors, status: :unprocessable_entity
@@ -19,32 +45,21 @@ class StudentsController < PeopleController
 
 
     def profile
-        puts "Current user"
-        puts current_user
-        # super
-        if is_student? != nil
-            puts "headers"
-            puts request.headers
-            @user = User.find_by_auth_token!(request.headers[:token])
-            puts @user
-            person = @user.person 
-            student = person.student
-            render json: {
-                user: {
-                    username: @user.username, 
-                    email: @user.email, 
-                    person: person
-                }
+        @user = User.find_by_auth_token!(request.headers[:token])
+        person = @user.person 
+        student = person.student
+        render json: {
+            user: {
+                username: @user.username, 
+                email: @user.email, 
+                person: person
             }
-        else
-            render json: "Not a student"
-        end
+        }
     end
 
 
     # Put /students/courses
     def registerCourse
-        # puts register_params
         current_user.person.student.courses << Course.find(register_params)
     end
 
@@ -52,8 +67,6 @@ class StudentsController < PeopleController
 
 
     def courses
-        puts "Courses******"
-        puts current_user.person.student.courses
         render json: {
             courses: current_user.person.student.courses,
         }
@@ -63,27 +76,39 @@ class StudentsController < PeopleController
 
 
     # update finances
-    def update_out_of_pocket new_total
-        current_user.person.student.payment_types.out_of_pocket.update({value: new_total}) 
+    def update_out_of_pocket
+        current_user.person.student.payment_types[0].out_of_pocket.update({value: out_of_pocket_params}) 
     end
 
-    def update_fafsa new_total
-        current_user.person.student.payment_types.fafsa.update({value: new_total})
+    def update_fafsa 
+        current_user.person.student.payment_types[0].fafsa.update({value: new_total})
     end
-    def update_tap new_total
-        current_user.person.student.payment_types.tap.update({value: new_total})
+    def update_tap 
+        current_user.person.student.payment_types[0].tap.update({value: new_total})
     end
-    def update_scholarship new_total
-        current_user.person.student.payment_types.scholarship.update({value: new_total})
+    def update_scholarship 
+        current_user.person.student.payment_types[0].scholarship.update({value: new_total})
     end
-    def update_loan new_total
-        current_user.person.student.payment_types.loan.update({value: new_total})
+    def update_loan 
+        current_user.person.student.payment_types[0].loan.update({value: new_total})
     end
     
      
+    #get finances
+    def finances
+        render json: {
+            finances: {
+                fafsa: current_user.person.student.payment_types[0].fafsa.value,
+                out_of_pocket: current_user.person.student.payment_types[0].out_of_pocket.value,
+                tap: current_user.person.student.payment_types[0].tap.value,
+                scholarship: current_user.person.student.payment_types[0].scholarship.value,
+                loan: current_user.person.student.payment_types[0].loan.value,
+            }
+        }
+    end
 
 
-     
+
 
     private
     def student_params
@@ -93,4 +118,9 @@ class StudentsController < PeopleController
     def register_params
         params.permit(:course_id)
     end
+
+    def out_of_pocket_params
+        params.permit(:value)
+    end
+    
 end
