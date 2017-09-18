@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170918140953) do
     t.bigint "professor_id"
     t.string "name"
     t.string "description"
+    t.integer "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["professor_id"], name: "index_courses_on_professor_id"
@@ -53,10 +54,9 @@ ActiveRecord::Schema.define(version: 20170918140953) do
   end
 
   create_table "financial_accounts", force: :cascade do |t|
-    t.bigint "user_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_financial_accounts_on_user_id"
   end
 
   create_table "grades", force: :cascade do |t|

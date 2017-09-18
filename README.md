@@ -176,6 +176,12 @@ This app would be a remake of the current cuny system as it is not synched well 
 
 
 
+# Issues
+* Handling Relations vs Inheritence 
+    * Cant build inheritance tree, more like only one level because that would be changing the structure of the database probably.
+    * Usable in situations where all the tables would be exactly the same
+
+
 
 
 # License

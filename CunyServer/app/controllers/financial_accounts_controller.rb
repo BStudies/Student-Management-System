@@ -1,4 +1,4 @@
-class FinancialAccountsController < ApplicationController
+class FinancialAccountsController < ApiController
     def create
 
     end

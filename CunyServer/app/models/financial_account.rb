@@ -1,2 +1,2 @@
-class FinancialAccount < ApplicationRecord
+class FinancialAccount < User
 end

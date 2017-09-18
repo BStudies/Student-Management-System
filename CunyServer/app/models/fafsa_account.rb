@@ -1,2 +1,2 @@
-class FafsaAccount < ApplicationRecord
+class FafsaAccount < FinancialAccount
 end
