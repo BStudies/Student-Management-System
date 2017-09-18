@@ -221,6 +221,22 @@ nav{
   order: auto;
 }
 
+.outOfPocket{
+	justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+
+  align-content: auto;
+	align-self: auto;
+	display: flex;
+	flex-basis: auto;
+	flex-flow: auto;
+	flex-grow: auto;
+	flex-shrink: auto;
+	flex-wrap: auto;
+  order: auto;
+}
+
 
 @media screen and (orientation: landscape){
 

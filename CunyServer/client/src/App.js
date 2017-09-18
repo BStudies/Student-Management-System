@@ -18,6 +18,7 @@ import ProfessorProfileCourse from './components/ProfessorProfileCourse'
 import Nav from './components/Nav'
 import NotFound from './components/NotFound'
 import CourseIndex from './components/CourseIndex'
+import StudentFinances from './components/StudentFinances'
 
 
 
@@ -70,10 +71,17 @@ class App extends Component {
           <Nav handleRedirect={this.handleRedirect}/>
           <Switch>
             <Route exact path="/" render={ () => <Home handleRedirect={this.handleRedirect}/>}/>
+
+            
             {/*profiles*/}
             <Route exact path="/students/profile" render={ () => <StudentProfile handleRedirect={this.handleRedirect}/>}/>
             <Route exact path="/student/profile/courses" render={ () => <StudentCourses handleRedirect={this.handleRedirect}/>}/>
             <Route exact path="/professors/profile" render={ () => <ProfessorProfile handleRedirect={this.handleRedirect}/>}/>
+
+
+            {/*finances*/}
+            <Route exact path="/student/finances" render={ () => <StudentFinances handleRedirect={this.handleRedirect}/>}/>
+
             
             {/*creation*/}
             <Route exact path="/create-course" render={ () => <CreateCourse handleRedirect={this.handleRedirect}/>}/>

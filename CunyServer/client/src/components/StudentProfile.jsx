@@ -43,7 +43,7 @@ class StudentProfile extends Component{
                 <div className="info">
                     <div className="Personalinfo">
                         <h3><Link className='nav-link' Link to="/student/profile/courses">My Courses</Link></h3>
-                        <h3><Link className='nav-link' Link to="/finances">My Finances</Link></h3>
+                        <h3><Link className='nav-link' Link to="/student/finances">My Finances</Link></h3>
                     </div>
 
                     <div className="Globalinfo">
