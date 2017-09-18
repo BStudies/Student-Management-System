@@ -12,7 +12,7 @@ class Courses extends Component{
 
     handleCoursesList = () => {
         return(this.props.courses.map((course) => {
-            return (<Course course={course}/>)
+            return (<Course addRegister={this.props.addRegister} course={course}/>)
         }))
     }
 

@@ -1,6 +1,6 @@
 class StudentsController < PeopleController
     # before_action :require_login, except: [:create]
-
+    before_action :require_student, except: [:create, :profile]
     # POST /students
     def create
         super
@@ -41,9 +41,20 @@ class StudentsController < PeopleController
     end
 
 
+    # Put /students/courses
+    def registerCourse
+        # puts register_params
+        current_user.person.student.courses << Course.find(register_params)
+    end
+    
+
 
     private
     def student_params
     #   params.require(:student).permit(:date_of_birth, :first_name, :last_name, :emergency_contact)
+    end
+
+    def register_params
+        params.permit(:course_id)
     end
 end

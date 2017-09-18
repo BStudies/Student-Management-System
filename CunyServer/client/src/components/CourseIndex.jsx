@@ -25,7 +25,7 @@ class CourseIndex extends Component {
             }
         })
         .then(res => {
-            // console.log(res)
+            console.log(res)
             // console.log(res.data.courses)
             this.setState({
                 user: res.data.user,
@@ -45,7 +45,7 @@ class CourseIndex extends Component {
         return (
             <div>
                 <h1>All Courses</h1>
-                <Courses courses={this.state.courses}/>
+                <Courses addRegister={true} courses={this.state.courses}/>
             </div>
             
         )

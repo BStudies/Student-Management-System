@@ -9,7 +9,7 @@ class ApiController < ApplicationController
         is_admin? || render_unauthorized("Access denied")
     end
     def require_student
-        is_professor? || render_unauthorized("Access denied")
+        is_student? || render_unauthorized("Access denied")
     end
     def require_professor
         is_professor? || render_unauthorized("Access denied")

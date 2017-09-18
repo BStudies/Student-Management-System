@@ -4,15 +4,25 @@ Rails.application.routes.draw do
   # resources :users
   # authentication routes
   # direct routes
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+
+  # getters
   get "/student/profile", to: "students#profile"
   get "/professor/profile", to: "professors#profile"
   get "/admin/profile", to: "admins#profile"
 
+  # posts
+  post "/login", to: "sessions#create"
+
+  # deletes
+  delete "/logout", to: "sessions#destroy"
+
+  # updates
+  put "/students/courses", to: "students#registerCourse"
 
   # professor courses
   get "/professor/profile/courses", to: "professors#courses"
+
+
 
   # resources
   resources :students

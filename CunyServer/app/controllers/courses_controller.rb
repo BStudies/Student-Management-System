@@ -11,7 +11,22 @@ class CoursesController < ApiController
 
     def index
         courses = Course.all 
-        render json: {courses: courses}
+        professors = {}
+        courses.each do |course|
+            # course_copy = course
+            # course[:professor_id] << course.professor.person.last_name
+            professors[course[:professor_id]] = course.professor.person.last_name            
+        end
+        # professor_names = {}
+        # professors.each do |professor|
+
+        # end
+        
+        
+        render json: {
+            courses: courses,
+            professors: professors,
+        }
     end
 
     private
