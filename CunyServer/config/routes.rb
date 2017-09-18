@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # getters
   get "/student/profile", to: "students#profile"
+  get "/student/profile/courses", to: "students#courses"
   get "/professor/profile", to: "professors#profile"
   get "/admin/profile", to: "admins#profile"
 

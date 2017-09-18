@@ -46,6 +46,16 @@ class StudentsController < PeopleController
         # puts register_params
         current_user.person.student.courses << Course.find(register_params)
     end
+
+
+    def courses
+        puts "Courses******"
+        puts current_user.person.student.courses
+        render json: {
+            courses: current_user.person.student.courses,
+        }
+    end
+    
     
 
 
