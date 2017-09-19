@@ -45,13 +45,15 @@ class StudentsController < PeopleController
 
 
     def profile
+        puts "in student controller"
         if(is_student?)
             render json: {
                 user: {
                     username: current_user.username, 
                     email: current_user.email, 
                     person: current_user.person
-                }
+                },
+                student: true
             }
         else
             render json: {

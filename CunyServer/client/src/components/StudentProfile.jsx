@@ -24,6 +24,7 @@ class StudentProfile extends Component{
             }
         })
         .then(res => {
+            console.log(res)
             if(res.data.student){
                 this.setState({
                     user: res.data.user,
