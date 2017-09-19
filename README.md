@@ -187,5 +187,10 @@ This app would be a remake of the current cuny system as it is not synched well 
     * refactor now
 
 
+
+# Future upgrades
+* Make the app more scalable for future types of financial accounts and user types
+
+
 # License
 Copyright © 2017
