@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_secure_password
     has_secure_token :auth_token
     has_one :person
-
+    has_one :financial_account
     # applies logout
     def invalidate_token
         self.update_columns(auth_token: nil)

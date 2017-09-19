@@ -1,0 +1,2 @@
+class LoanAccountsController < ApplicationController
+end

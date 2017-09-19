@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 20170918140953) do
   end
 
   create_table "fafsa_accounts", force: :cascade do |t|
+    t.bigint "financial_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["financial_account_id"], name: "index_fafsa_accounts_on_financial_account_id"
   end
 
   create_table "fafsas", force: :cascade do |t|
@@ -52,9 +54,10 @@ ActiveRecord::Schema.define(version: 20170918140953) do
   end
 
   create_table "financial_accounts", force: :cascade do |t|
-    t.string "name"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_financial_accounts_on_user_id"
   end
 
   create_table "grades", force: :cascade do |t|

@@ -1,0 +1,2 @@
+class ScholarshipAccountsController < ApplicationController
+end

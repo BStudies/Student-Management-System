@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   # posts
   post "/login", to: "sessions#create"
   post "/fafsa_account", to: "fafsa_accounts#create"
+  post "/tap_account", to: "tap_accounts#create"
+  post "/scholarship_account", to: "scholarship_accounts#create"
+  post "/loan_account", to: "loan_accounts#create"
+  
+  
   # deletes
   delete "/logout", to: "sessions#destroy"
 
