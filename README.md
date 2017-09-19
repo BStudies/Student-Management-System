@@ -36,11 +36,24 @@ This app would be a remake of the current cuny system as it is not synched well 
                 * Final
 
 
-* Financial Aid
+<!--* Financial Aid
     * Administrators would have a register page that needs acceptance from another admin
     * Admin would would log in with their credentials
     * Admin could view data from a students account
-    * Admin could have toggles for data but cannot directly influence the data because much would be automated
+    * Admin could have toggles for data but cannot directly influence the data because much would be automated-->
+
+* Financial Aid
+    Will use the associated API for a financial account to update a student's finance for their respective account type. 
+
+    The API takes a student_id, field, and value ex
+    ```javascript
+        {
+            "student_id": 1,
+            "field": "fafsa",
+            "value": "2000"
+        }
+    ```
+    The value is the total amount of tuition aid the financial institution will give to the school. the student id is the id of the student on our database(the student will enter this information in the financial insitutions site). Lastly the field is the type of account, for now limited to: fafsa, tap, loan, scholarship.
 
 
 
@@ -192,6 +205,11 @@ This app would be a remake of the current cuny system as it is not synched well 
 # Future upgrades
 * Make the app more scalable for future types of financial accounts and user types
 * ~~Security issue with financial accounts being able to change any of fields. ~~
+* Make Tuition dependent on courses
+
+
+
+
 
 # License
 Copyright © 2017
