@@ -38,6 +38,19 @@ class ApiController < ApplicationController
     def is_financial_account?
         current_user.financial_account != nil
     end
+    def is_fafsa_account?
+        current_user.financial_account.fafsa_account != nil
+    end
+    def is_tap_account?
+        current_user.financial_account.tap_account != nil
+    end
+    def is_scholarship_account?
+        current_user.financial_account.scholarship_account != nil
+    end
+    def is_loan_account?
+        current_user.lfinancial_account.oan_account != nil
+    end
+
     
     
     def userType
@@ -49,6 +62,19 @@ class ApiController < ApplicationController
             return :admins
         end
     end
+
+    def financialType
+        if is_fafsa_account?
+            return :fafsa
+        elsif is_tap_account?
+            return :tap
+        elsif is_scholarship_account?
+            return :scholarship
+        elsif is_loan_account?
+            return :loan
+        end
+    end
+    
     
     
     protected

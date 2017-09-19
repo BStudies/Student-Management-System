@@ -11497,3 +11497,532 @@ Processing by StudentsController#finances as HTML
 Completed 200 OK in 152ms (Views: 0.4ms | ActiveRecord: 48.6ms)
 
 
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:10:06 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 8.8ms)
+
+
+  
+NoMethodError (undefined method `valueParams' for #<PaymentType:0x007f9f0c2a3778>):
+  
+app/controllers/financial_accounts_controller.rb:14:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:10:43 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected '[', expecting '('
+: #{student.payment_types[0].[valueParams[:field]].value}"
+                              ^
+/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected ']', expecting tSTRING_DEND
+types[0].[valueParams[:field]].value}"
+                              ^
+/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected '[', expecting '('
+: #{student.payment_types[0].[valueParams[:field]].value}"
+                              ^
+/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected ']', expecting tSTRING_DEND
+types[0].[valueParams[:field]].value}"
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected '[', expecting '('
+app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected ']', expecting tSTRING_DEND
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected '[', expecting '('
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected ']', expecting tSTRING_DEND
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:11:23 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected '[', expecting '('
+: #{student.payment_types[0].[valueParams[:field]].value}"
+                              ^
+/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected ']', expecting tSTRING_DEND
+types[0].[valueParams[:field]].value}"
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected '[', expecting '('
+app/controllers/financial_accounts_controller.rb:14: syntax error, unexpected ']', expecting tSTRING_DEND
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:11:58 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Unpermitted parameter: :financial_account
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 8.9ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:14:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:13:00 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:14:18 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:14:40 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `field' for #<PaymentType:0x007f9f0aa71c90>):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:15:03 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:15:45 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.4ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:16:09 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:16:22 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:16:44 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:16:58 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSYMBEG, expecting '('
+uts student.payment_types[0].:fafsa.value
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSYMBEG, expecting '('
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:17:18 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting '('
+uts student.payment_types[0]."fafsa".value
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting '('
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:18:01 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected '[', expecting '('
+uts student.payment_types[0].[:fafsa].value
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected '[', expecting '('
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:18:10 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 10.6ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:18:27 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.7ms)
+
+
+  
+NameError (undefined local variable or method `fafsa' for #<FinancialAccountsController:0x007f9f0f09ade8>):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:18:34 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:18:50 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tIVAR, expecting '('
+tudent.payment_types[0].@field.value
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tIVAR, expecting '('
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:19:09 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected '(', expecting keyword_end
+puts student.payment_types[0](@field).value
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected '(', expecting keyword_end
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:19:21 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting '('
+uts student.payment_types[0]."fafsa".value
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting '('
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:19:55 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 8.9ms)
+
+
+  
+NoMethodError (undefined method `value' for nil:NilClass):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:21:55 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:22:21 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 200 OK in 30ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:23:57 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting '('
+uts student.payment_types[0]."fafsa"
+                              ^):
+  
+app/controllers/financial_accounts_controller.rb:16: syntax error, unexpected tSTRING_BEG, expecting '('
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:24:14 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 8.4ms)
+
+
+  
+NoMethodError (undefined method `call' for #<PaymentType:0x007f9f0b3b7f20>):
+  
+app/controllers/financial_accounts_controller.rb:16:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:25:48 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.3ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 0.3ms | ActiveRecord: 3.9ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:26:04 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.3ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.3ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:26:51 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.3ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "fafsas" SET "value" = $1, "updated_at" = $2 WHERE "fafsas"."id" = $3[0m  [["value", 2000], ["updated_at", "2017-09-19 15:26:51.759011"], ["id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 55ms (Views: 0.4ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-09-19 11:27:05 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "HSRGXetD81cUy9UwELbQAEX3"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "HSRGXetD81cUy9UwELbQAEX3"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.9ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.7ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (1.1ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (0.4ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (0.4ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (0.4ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 182ms (Views: 0.3ms | ActiveRecord: 29.5ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:34:24 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.7ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `student' for nil:NilClass):
+  
+app/controllers/api_controller.rb:36:in `is_student?'
+app/controllers/api_controller.rb:57:in `userType'
+app/controllers/financial_accounts_controller.rb:14:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:35:25 -0400
+  
+SyntaxError (/Users/yelimpark/wdi/PROJECTS/Cuny_and_finance/Cuny-Replica/CunyServer/app/controllers/api_controller.rb:94: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/api_controller.rb:94: syntax error, unexpected end-of-input, expecting keyword_end
+app/controllers/users_controller.rb:1:in `<top (required)>'
+app/controllers/financial_accounts_controller.rb:1:in `<top (required)>'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:35:47 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 4.3ms)
+
+
+  
+NoMethodError (undefined method `fafsa_account' for #<User:0x007f9f0f001c60>):
+  
+app/controllers/api_controller.rb:42:in `is_fafsa_account?'
+app/controllers/api_controller.rb:67:in `financialType'
+app/controllers/financial_accounts_controller.rb:14:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:36:56 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mFinancialAccount Load (0.4ms)[0m  [1m[34mSELECT  "financial_accounts".* FROM "financial_accounts" WHERE "financial_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFafsaAccount Load (0.4ms)[0m  [1m[34mSELECT  "fafsa_accounts".* FROM "fafsa_accounts" WHERE "fafsa_accounts"."financial_account_id" = $1 LIMIT $2[0m  [["financial_account_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.2ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 12.7ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:39:58 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mFinancialAccount Load (0.3ms)[0m  [1m[34mSELECT  "financial_accounts".* FROM "financial_accounts" WHERE "financial_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFafsaAccount Load (0.3ms)[0m  [1m[34mSELECT  "fafsa_accounts".* FROM "fafsa_accounts" WHERE "fafsa_accounts"."financial_account_id" = $1 LIMIT $2[0m  [["financial_account_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 23ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/financial_accounts_controller.rb:30:in `updateStudentFinance'
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:41:03 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mFinancialAccount Load (0.3ms)[0m  [1m[34mSELECT  "financial_accounts".* FROM "financial_accounts" WHERE "financial_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFafsaAccount Load (0.3ms)[0m  [1m[34mSELECT  "fafsa_accounts".* FROM "fafsa_accounts" WHERE "fafsa_accounts"."financial_account_id" = $1 LIMIT $2[0m  [["financial_account_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:41:45 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mFinancialAccount Load (0.3ms)[0m  [1m[34mSELECT  "financial_accounts".* FROM "financial_accounts" WHERE "financial_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFafsaAccount Load (0.3ms)[0m  [1m[34mSELECT  "fafsa_accounts".* FROM "fafsa_accounts" WHERE "fafsa_accounts"."financial_account_id" = $1 LIMIT $2[0m  [["financial_account_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:42:23 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mFinancialAccount Load (0.3ms)[0m  [1m[34mSELECT  "financial_accounts".* FROM "financial_accounts" WHERE "financial_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFafsaAccount Load (0.3ms)[0m  [1m[34mSELECT  "fafsa_accounts".* FROM "fafsa_accounts" WHERE "fafsa_accounts"."financial_account_id" = $1 LIMIT $2[0m  [["financial_account_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 50ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/students/finance" for 127.0.0.1 at 2017-09-19 11:43:12 -0400
+Processing by FinancialAccountsController#updateStudentFinance as */*
+  Parameters: {"student_id"=>1, "field"=>"fafsa", "value"=>"2000", "financial_account"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ttYqt92PH9RnH2g9vhbBYx64"], ["LIMIT", 1]]
+  [1m[36mFinancialAccount Load (0.3ms)[0m  [1m[34mSELECT  "financial_accounts".* FROM "financial_accounts" WHERE "financial_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mFafsaAccount Load (0.3ms)[0m  [1m[34mSELECT  "fafsa_accounts".* FROM "fafsa_accounts" WHERE "fafsa_accounts"."financial_account_id" = $1 LIMIT $2[0m  [["financial_account_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (0.2ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (0.3ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :financial_account
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 1.9ms)
+
+
