@@ -1,10 +1,10 @@
-class FinancialAccountsController < ApiController
+class FinancialAccountsController < UsersController
     def create
-        super
-        @financial_account = FinancialAccount.new(create_params)
+        # super
+        # @financial_account = FinancialAccount.new(create_params)
         # @financial_account.user = @user
         # @financial_account.name = create_params.name
-        @financial_account.save!  
+        # @financial_account.save!  
 
     end
     
@@ -16,7 +16,8 @@ class FinancialAccountsController < ApiController
         params.permit(:student_id, :)
     end
     def create_params
-        params.permit(:name)
+        puts params
+        params.require(:user).permit(:username, :email, :password)
     end
     
 end

@@ -183,6 +183,8 @@ This app would be a remake of the current cuny system as it is not synched well 
 
 * Financial Accounts have an associated person id because it is based off a user. This is sloppy and should be removed when possible. 
 
+* When one financial account is created a user account is also created, this is a bit sloppy, should refactor.
+
 
 # License
 Copyright © 2017

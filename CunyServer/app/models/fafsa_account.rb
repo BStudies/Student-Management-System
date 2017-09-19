@@ -1,2 +1,2 @@
-class FafsaAccount < FinancialAccount
+class FafsaAccount < User
 end

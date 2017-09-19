@@ -1,8 +1,6 @@
 class FafsaAccountsController < UsersController
     def create         
-        @fafsa_account = FafsaAccount.new()
-        # @financial_account
-        # fafsa_account.financial
+        @fafsa_account = FafsaAccount.new(user_params)
         if @fafsa_account.save!
             render json: {token: @user.auth_token, accountType: :students}
         else
