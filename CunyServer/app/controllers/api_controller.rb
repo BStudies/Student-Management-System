@@ -14,6 +14,10 @@ class ApiController < ApplicationController
     def require_professor
         is_professor? || render_unauthorized("Access denied")
     end
+    def require_financial_Account
+
+    end
+    
     
 
     def current_user
@@ -31,6 +35,10 @@ class ApiController < ApplicationController
     def is_student?
         current_user.person.student != nil
     end
+    def is_financial_account?
+        current_user.financial_account != nil
+    end
+    
     
     def userType
         if is_student?

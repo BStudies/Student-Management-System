@@ -26,7 +26,6 @@ class Home extends Component{
     }
     handleAccountTypeInputChange = e => {
         e.preventDefault()
-        console.log(e.target)
         let name = e.target.name
         let value = e.target.className
         this.setState({

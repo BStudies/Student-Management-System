@@ -181,7 +181,7 @@ This app would be a remake of the current cuny system as it is not synched well 
     * Cant build inheritance tree, more like only one level because that would be changing the structure of the database probably.
     * Usable in situations where all the tables would be exactly the same
 
-
+* Financial Accounts have an associated person id because it is based off a user. This is sloppy and should be removed when possible. 
 
 
 # License

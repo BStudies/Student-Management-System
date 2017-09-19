@@ -10269,3 +10269,98 @@ Processing by StudentsController#finances as HTML
 Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 2.0ms)
 
 
+Started POST "/fafas" for 127.0.0.1 at 2017-09-18 15:47:00 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/fafas"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:12:41 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 2.0ms)
+
+
+  [1m[36mFafsaAccount Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:16:16 -0400
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:19:49 -0400
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (super: no superclass method `create' for #<FafsaAccountsController:0x007fa841adb5b0>):
+  
+app/controllers/fafsa_accounts_controller.rb:3:in `create'
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:20:26 -0400
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.6ms)
+
+
+  
+NoMethodError (undefined method `save!' for nil:NilClass):
+  
+app/controllers/fafsa_accounts_controller.rb:6:in `create'
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:20:55 -0400
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `save!' for nil:NilClass):
+  
+app/controllers/fafsa_accounts_controller.rb:6:in `create'
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:21:14 -0400
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 44ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank):
+  
+app/controllers/fafsa_accounts_controller.rb:6:in `create'
+Started POST "/fafsa_account" for 127.0.0.1 at 2017-09-18 16:22:36 -0400
+Processing by FafsaAccountsController#create as */*
+  Parameters: {"user"=>{"username"=>"fafsa", "email"=>"f@f.com", "password"=>"[FILTERED]"}, "fafsa_account"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 19ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank):
+  
+app/controllers/fafsa_accounts_controller.rb:6:in `create'
