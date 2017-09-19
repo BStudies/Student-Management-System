@@ -1,0 +1,2 @@
+class TapAccountsController < ApplicationController
+end

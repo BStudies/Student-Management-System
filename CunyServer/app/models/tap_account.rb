@@ -1,2 +1,2 @@
-class TapAccount < FinancialAccount
+class TapAccount < User
 end

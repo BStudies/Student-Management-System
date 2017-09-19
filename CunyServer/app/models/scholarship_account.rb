@@ -1,2 +1,2 @@
-class ScholarshipAccount < FinancialAccount
+class ScholarshipAccount < User
 end

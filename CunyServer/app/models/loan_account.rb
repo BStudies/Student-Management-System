@@ -1,2 +1,2 @@
-class LoanAccount < FinancialAccount
+class LoanAccount < User
 end
