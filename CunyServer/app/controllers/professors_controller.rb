@@ -1,6 +1,6 @@
 class ProfessorsController < PeopleController
     # POST /professors
-    before_action :require_professor, except: [:create]
+    # before_action :require_professor, only: [:create]
     
     def create
         super
@@ -18,7 +18,7 @@ class ProfessorsController < PeopleController
         puts "Current user"
         puts current_user
         # super
-        if is_student? != nil
+        if is_professor?
             puts "headers"
             puts request.headers
             @user = User.find_by_auth_token!(request.headers[:token])
@@ -33,7 +33,10 @@ class ProfessorsController < PeopleController
                 }
             }
         else
-            render json: "Not a student"
+            render json: {
+                message: "Not a professor",
+                accessDenied: true,
+            }
         end
     end
 

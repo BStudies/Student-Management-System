@@ -202,13 +202,14 @@ This app would be a remake of the current cuny system as it is not synched well 
 
 
 
-# Future upgrades
+# Future improvements
 * Make the app more scalable for future types of financial accounts and user types
 * ~~Security issue with financial accounts being able to change any of fields. ~~
 * Make Tuition dependent on courses
-
-
-
+* Incooperate grades into the students relations.
+* Incooperate semesters into the schema, currently this service allows only one semester
+* Incooperate realtime notification for student when their account is updated
+* Remove the ability to make any kind of user on the home page
 
 
 # License

@@ -110,18 +110,6 @@ class Home extends Component{
                                     <div className="accountTypeSelection">
                                         <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="students" name="accountType"></input> Student
                                     </div>
-                                    <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="fafas" name="accountType"></input> Fafsa
-                                    </div>
-                                    <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="taps" name="accountType"></input> Tap
-                                    </div>
-                                    <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="loans" name="accountType"></input> Loan
-                                    </div>
-                                    <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="scholarships" name="accountType"></input> Scholarship
-                                    </div>
                                 </div>
                                 
                                 <input onChange={e=>this.handleInputChange(e)} type="text" name="first_name" placeholder='First Name'/>

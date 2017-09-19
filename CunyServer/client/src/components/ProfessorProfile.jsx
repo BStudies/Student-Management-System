@@ -10,6 +10,7 @@ class ProfessorProfile extends Component{
         this.state = {
             user: null,
             mounted: false,
+            accessDenied: false,
         }
     }
 
@@ -24,10 +25,18 @@ class ProfessorProfile extends Component{
         })
         .then(res => {
             console.log(res)
-            this.setState({
-                user: res.data.user,
-                mounted: true,
-            })
+            if(res.data.accessDenied){
+                this.setState({
+                    user: res.data.user,
+                    accessDenied: res.data.accessDenied
+                })
+            }
+            else{
+                this.setState({
+                    user: res.data.user,
+                    mounted: true,
+                })
+            }
         })
     }
 
@@ -35,7 +44,7 @@ class ProfessorProfile extends Component{
 
     render(){
         if(!this.state.mounted){
-            return <Loading/>
+            return <Loading accessDenied={this.state.accessDenied}/>
         }
         return (
             <div>
