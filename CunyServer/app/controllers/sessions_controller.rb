@@ -7,7 +7,10 @@ class SessionsController < ApiController
             allow_token_to_be_used_only_once_for(user)
             send_token_for_valid_login_of(user)
         else
-            render_unauthorized("Error with your login or password")
+            # render_unauthorized("Error with your login or password")
+            render json:{
+                incorrect: true,
+            }
         end
         
     end

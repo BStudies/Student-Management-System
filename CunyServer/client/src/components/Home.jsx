@@ -73,11 +73,18 @@ class Home extends Component{
             password: this.state.password
         })
         .then(res => {
-
-            // console.log(res.data.token)
-            Auth.authenticateToken(res.data.token)
-            this.props.handleRedirect('/students/profile')
+            this.setState({
+                incorrect: res.data.incorrect
+            })
+            if(!res.data.incorrect){
+                Auth.authenticateToken(res.data.token)
+                this.props.handleRedirect('/students/profile')
+            }   
         })
+    }
+
+    incorrectLogin = () => {
+        if(this.state.incorrect) return(<p>Incorrect Username or password</p>)
     }
 
 
@@ -127,6 +134,7 @@ class Home extends Component{
 
                         <div className="Login">
                             <h3>Login</h3>
+                            {this.incorrectLogin()}
                             <form>
                                 <input onChange={e=>this.handleInputChange(e)} className="myInput" type="text" name="username" placeholder='Username'/>
                                 <input onChange={e=>this.handleInputChange(e)} className="myInput" type="password" name="password" placeholder='Password'/>
