@@ -10,6 +10,7 @@ class StudentProfile extends Component{
         this.state = {
             user: null,
             mounted: false,
+            accessDenied: false,
         }
     }
 
@@ -23,11 +24,18 @@ class StudentProfile extends Component{
             }
         })
         .then(res => {
-            console.log(res)
-            this.setState({
-                user: res.data.user,
-                mounted: true,
-            })
+            if(res.data.student){
+                this.setState({
+                    user: res.data.user,
+                    mounted: true,
+                })
+            }
+            else{
+                this.setState({
+                    accessDenied: true,
+                })
+            }
+            
         })
     }
 
@@ -35,7 +43,7 @@ class StudentProfile extends Component{
 
     render(){
         if(!this.state.mounted){
-            return <Loading/>
+            return <Loading accessDenied={this.state.accessDenied}/>
         }
         return (
             <div>
@@ -57,7 +65,7 @@ class StudentProfile extends Component{
                 
                 <div className="upcoming">
                     <h3>Upcoming</h3>
-                    =====
+                    <div className="upcomingDivider"></div>
                     <div className="events">
                         <h5>hw</h5>
                         <h5>quiz</h5>

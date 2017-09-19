@@ -45,16 +45,20 @@ class StudentsController < PeopleController
 
 
     def profile
-        @user = User.find_by_auth_token!(request.headers[:token])
-        person = @user.person 
-        student = person.student
-        render json: {
-            user: {
-                username: @user.username, 
-                email: @user.email, 
-                person: person
+        if(is_student?)
+            render json: {
+                user: {
+                    username: current_user.username, 
+                    email: current_user.email, 
+                    person: current_user.person
+                }
             }
-        }
+        else
+            render json: {
+                message: "You are not a student!",
+                student: false,
+            }
+        end 
     end
 
 

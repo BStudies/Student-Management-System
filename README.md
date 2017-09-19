@@ -210,7 +210,7 @@ This app would be a remake of the current cuny system as it is not synched well 
 * Incooperate semesters into the schema, currently this service allows only one semester
 * Incooperate realtime notification for student when their account is updated
 * Remove the ability to make any kind of user on the home page
-
+* Display upcomming homework and tests based on date
 
 # License
 Copyright © 2017

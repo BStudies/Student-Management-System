@@ -102,24 +102,24 @@ class Home extends Component{
                             <form onSubmit={e => this.handleRegistrationFormSubmit(e)}>
                                 <div className="accountType">
                                     <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="admins" name="accountType"></input> Admin
+                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="admins" name="accountType"></input> <h5>Admin</h5>
                                     </div>
                                     <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="professors" name="accountType"></input> Professor
+                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="professors" name="accountType"></input> <h5>Professor</h5>
                                     </div>
                                     <div className="accountTypeSelection">
-                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="students" name="accountType"></input> Student
+                                        <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="students" name="accountType"></input> <h5>Student</h5>
                                     </div>
                                 </div>
                                 
-                                <input onChange={e=>this.handleInputChange(e)} type="text" name="first_name" placeholder='First Name'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="text" name="last_name" placeholder='Last Name'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="email" name="email" placeholder='Email'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="text" name="username" placeholder='Username'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="password" name="password" placeholder='Password'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="date" name="date_of_birth" placeholder='Date Of Birth'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="tel" name="emergency_contact" placeholder='Emergency Contact'/>
-                                <input type="submit" />
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="text" name="first_name" placeholder='First Name'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="text" name="last_name" placeholder='Last Name'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="email" name="email" placeholder='Email'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="text" name="username" placeholder='Username'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="password" name="password" placeholder='Password'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="date" name="date_of_birth" placeholder='Date Of Birth'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="tel" name="emergency_contact" placeholder='Emergency Contact'/>
+                                <input className="myInput" type="submit" />
                             </form>
                         </div>
                         
@@ -128,9 +128,9 @@ class Home extends Component{
                         <div className="Login">
                             <h3>Login</h3>
                             <form>
-                                <input onChange={e=>this.handleInputChange(e)} type="text" name="username" placeholder='Username'/>
-                                <input onChange={e=>this.handleInputChange(e)} type="password" name="password" placeholder='Password'/>
-                                <input onClick={e => this.handleLoginFormSubmit(e)} type="submit" />
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="text" name="username" placeholder='Username'/>
+                                <input onChange={e=>this.handleInputChange(e)} className="myInput" type="password" name="password" placeholder='Password'/>
+                                <input onClick={e => this.handleLoginFormSubmit(e)} className="myInput" type="submit" />
                             </form>
                         </div>
                         

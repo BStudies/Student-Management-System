@@ -36,6 +36,32 @@
 }
 
 
+h1{
+	font-size: 50px;
+}
+h2{
+	font-size: 45px;
+}
+h3{
+	font-size: 40px;
+}
+h4{
+	font-size: 35px;
+}
+h5{
+	font-size: 30px;
+}
+button{
+	height: 40px;
+	width: 80px;
+	font-size: 20px;
+	/*background-color: #FF574C;*/
+}
+input[type="submit"], button{
+	background-color: #B24E47;
+	border-radius: 25%;
+}
+
 form{
   justify-content: center;
   align-items: center;
@@ -56,7 +82,11 @@ input{
   margin: 4px;
   text-align: center;
 }
-
+.myInput{
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+}
 
 .accountType{
   width: 50px;
@@ -89,6 +119,7 @@ input{
 	flex-shrink: auto;
 	flex-wrap: auto;
   order: auto;
+	height: 50px;
 }
 .Registration{
   width: 100px;
@@ -108,8 +139,14 @@ input{
 }
 .divider{
   background-color: red;
-  height: 90px;
+  height: 300px;
   width: 5px;
+  border-radius: 100%;
+}
+.upcomingDivider{
+	background-color: red;
+  width: 300px;
+  height: 5px;
   border-radius: 100%;
 }
 .Login{
@@ -161,6 +198,14 @@ nav{
 	flex-shrink: auto;
 	flex-wrap: auto;
   order: auto;
+	background-color: #5190CC;
+	height: 70px;
+}
+.nav-link{
+	font-size: 30px;
+}
+a:visited{
+	color: black;
 }
 .LoadingScreen{
   justify-content: space-around;
@@ -180,9 +225,10 @@ nav{
 
 .loadingCircle{
   background-color: red;
-  width: 200px;
+  width: 400px;
   height: 200px;
   border-radius: 50%;
+	animation: App-logo-spin infinite 4s linear;
 }
 
 .course{
@@ -238,15 +284,105 @@ nav{
 }
 
 
-@media screen and (orientation: landscape){
+
+
+
+
+
+
+
+/*@media screen and (aspect-ratio: 36/64){
+	.loadingCircle{
+		background-color: red;
+		width: 200px;
+		height: 100px;
+		border-radius: 50%;
+		animation: App-logo-spin infinite 4s linear;
+	}
+	.nav-link{
+		font-size: 20px;
+	}
+}*/
+
+
+@media screen and (orientation: portrait) and (max-width: 768px){
+	.loadingCircle{
+		background-color: red;
+		width: 200px;
+		height: 100px;
+		border-radius: 50%;
+		animation: App-logo-spin infinite 4s linear;
+	}
+	.nav-link{
+		font-size: 20px;
+	}
+	h1{
+	font-size: 35px;
+	}
+	h2{
+		font-size: 30px;
+	}
+	h3{
+		font-size: 25px;
+	}
+	h4{
+		font-size: 20px;
+	}
+	h5{
+		font-size: 15px;
+	}
+	.myInput{
+		width: 150px;
+		height: 30px;
+		font-size: 15px;
+	}
+	.accountTypeSelection{
+		justify-content: center;
+		align-items: center;
+		
+		align-content: auto;
+		align-self: auto;
+		display: flex;
+		flex-basis: auto;
+		flex-direction: row;
+		flex-flow: auto;
+		flex-grow: auto;
+		flex-shrink: auto;
+		flex-wrap: auto;
+		order: auto;
+		height: 30px;
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  0% { 
+		transform: rotate(0deg); 
+		/*transform: skew(30deg, 20deg);*/
+	}
+	50%{
+		 
+		transform: scale(1.2,1.2);
+		background-color: blue;
+	}
+  100% { 
+		transform: rotate(360deg);
+	}
 }
 
-@keyframes Grow-And-Shrink{
-  /*from {size: }*/
+@keyframes Grow-and-shrink {
+  0% {transform: scale(1,1); }
+	50% { transform: scale(2,2); }
+	100% {transform: scale(1,1); }
 }
