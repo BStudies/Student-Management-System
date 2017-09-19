@@ -66,7 +66,10 @@ class StudentsController < PeopleController
 
     # Put /students/courses
     def registerCourse
-        current_user.person.student.courses << Course.find(register_params)
+        current_user.person.student.courses << Course.find(register_params[:course_id])
+        render json:{
+            message: "Student was successfuly added"
+        }
     end
 
 
