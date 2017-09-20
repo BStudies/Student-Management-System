@@ -87,71 +87,14 @@ This app would be a remake of the current cuny system as it is not synched well 
 
 ### Databases
 * Cuny Database
-* Financial Aid Database
+
+[Inheritance 1](./photos/2017-09-19_20h47_25.png)
+[Inheritance 2](./photos/2017-09-19_20h47_37.png)
+[Inheritance 3](./photos/2017-09-19_20h46_22.png)
+[Table Relations](./photos/2017-09-19_20h46_45.png)
 
 
 
-
-### Model
-* user
-    * t
-        * username 
-        * email
-        * first name
-        * last name
-        * date of birth
-        * emergency contact 
-        * password_digest
-        * token
-
-* admin < user
-    * t
-
-* professor < user
-    * t
-
-    * has_many courses
-    * has_many students through courses
-* course
-    * t
-        * name
-    * belongs_to professor
-    * has_and_belongs_to_many students
-    * has_and_belongs_to_many grades
-* financial_account < user
-    * t
-    * belongs_to student
-    * has_one 
-* financial 
-    * t
-        * amount
-* fafsa < financial
-    * t 
-    * belongs_to student
-* tap < financial
-    * t 
-    * belongs_to student
-* loan < financial
-    * t 
-    * belongs_to student
-* scholarship < financial
-    * t 
-        * amount
-    * belongs_to student
-* student < user
-    * t
-
-    * has_and_belongs_to_many courses
-    * has_many_grades through courses
-    * has_one fafsa
-    * has_one tap
-    * has_one loan
-    * has_one scholarship
-* grade 
-    * t
-        * value
-    * belongs_to student
-    * has_and_belongs_to_many course
 
 
 
