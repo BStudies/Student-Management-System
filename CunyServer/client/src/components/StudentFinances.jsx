@@ -78,7 +78,7 @@ class StudentFinances extends Component{
                 <div className="outOfPocket">
                     <form onSubmit={e => {this.handlePay(e)}}>
                         <h3>Paid: <input onChange={e => {this.handleInputChange(e)}} type="number" name="out_of_pocket" placeholder={this.state.finances.out_of_pocket}/></h3>
-                        <input type="submit" value="Update"/>
+                        <input className="myInput" type="submit" value="Update"/>
                     </form>
                     
                 </div>

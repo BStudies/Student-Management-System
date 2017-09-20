@@ -29,13 +29,12 @@ class Course extends Component{
 
         })
         .then(res => {
-            console.log(res)
-            // console.log(res.data.courses)
             this.setState({
                 user: res.data.user,
                 mounted: true,
                 courses: res.data.courses
             })
+            this.props.handleRedirect("/")
         })
     }
 
@@ -46,7 +45,7 @@ class Course extends Component{
                     <h3>Course: {this.props.course.name}</h3>
                     <h5>Description: {this.props.course.description}</h5>
                     <h5>Professor: {this.props.course.professor_id}</h5>
-                    <button onClick={e=>this.handleCourseRegistration()}>Register</button>
+                    <button className="myInput" onClick={e=>this.handleCourseRegistration()}>Register</button>
                 </div>
             )
         }

@@ -58,7 +58,7 @@ class CreateCourse extends Component{
                     <div>
                         Cost: <input onChange={e => this.handleInputChange(e)} type="text" name="cost" placeholder="$$$"/>
                     </div>
-                    <input type="submit" value="submit"/>
+                    <input className="myInput" type="submit" value="submit"/>
                 </form>
             </div>
         

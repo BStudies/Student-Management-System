@@ -22,7 +22,17 @@ class SessionsController < ApiController
 
     private
     def send_token_for_valid_login_of(user)
-        render json: {token: user.auth_token}
+        if user.person.student
+            render json: {
+                token: user.auth_token,
+                accountType: :students
+            }
+        elsif user.person.professor
+            render json: {
+                token: user.auth_token,
+                accountType: :professors
+            }
+        end
     end
     
     def allow_token_to_be_used_only_once_for(user)

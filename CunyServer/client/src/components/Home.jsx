@@ -66,8 +66,6 @@ class Home extends Component{
     }
     handleLoginFormSubmit = (e) => {
         e.preventDefault()
-        // console.log("this is where we handle login")
-
         axios.post('/login', {
             username: this.state.username,
             password: this.state.password
@@ -78,7 +76,7 @@ class Home extends Component{
             })
             if(!res.data.incorrect){
                 Auth.authenticateToken(res.data.token)
-                this.props.handleRedirect('/students/profile')
+                this.props.handleRedirect(`/${res.data.accountType}/profile`)
             }   
         })
     }
@@ -148,7 +146,8 @@ class Home extends Component{
                 
             )
         }
-        return(<Redirect to="/students/profile"/>)
+        return(<h1>You are logged in</h1>)
+        // return(<Redirect to="/students/profile"/>)
     }
 }
 

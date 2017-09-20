@@ -67,8 +67,10 @@ ActiveRecord::Schema.define(version: 20170918140953) do
   end
 
   create_table "loan_accounts", force: :cascade do |t|
+    t.bigint "financial_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["financial_account_id"], name: "index_loan_accounts_on_financial_account_id"
   end
 
   create_table "loans", force: :cascade do |t|
@@ -139,8 +141,10 @@ ActiveRecord::Schema.define(version: 20170918140953) do
   end
 
   create_table "tap_accounts", force: :cascade do |t|
+    t.bigint "financial_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["financial_account_id"], name: "index_tap_accounts_on_financial_account_id"
   end
 
   create_table "taps", force: :cascade do |t|
