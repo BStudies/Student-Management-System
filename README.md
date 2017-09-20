@@ -1,8 +1,10 @@
 # Cuny-Replica
 
+![Landing Page](./photos/2017-09-19_22h04_32.png)
+
 This app would be a remake of the current cuny system as it is not synched well with other servers.
 
-
+[Deployed Web App](https://cuny-replica.herokuapp.com/)
 
 
 
@@ -36,11 +38,6 @@ This app would be a remake of the current cuny system as it is not synched well 
                 * Final
 
 
-<!--* Financial Aid
-    * Administrators would have a register page that needs acceptance from another admin
-    * Admin would would log in with their credentials
-    * Admin could view data from a students account
-    * Admin could have toggles for data but cannot directly influence the data because much would be automated-->
 
 * Financial Aid
     Will use the associated API for a financial account to update a student's finance for their respective account type. 
