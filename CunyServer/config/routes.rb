@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # authentication routes
   # direct routes
 
+  root to: "root#index"
+
+
   # getters
   get "/student/profile", to: "students#profile"
   get "/student/profile/courses", to: "students#courses"
