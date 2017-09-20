@@ -88,10 +88,10 @@ This app would be a remake of the current cuny system as it is not synched well 
 ### Databases
 * Cuny Database
 
-[Inheritance 1](./photos/2017-09-19_20h47_25.png)
-[Inheritance 2](./photos/2017-09-19_20h47_37.png)
-[Inheritance 3](./photos/2017-09-19_20h46_22.png)
-[Table Relations](./photos/2017-09-19_20h46_45.png)
+![Inheritance 1](./photos/2017-09-19_20h47_25.png)
+![Inheritance 2](./photos/2017-09-19_20h47_37.png)
+![Inheritance 3](./photos/2017-09-19_20h46_22.png)
+![Table Relations](./photos/2017-09-19_20h46_45.png)
 
 
 
