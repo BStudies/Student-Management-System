@@ -1,10 +1,9 @@
-# Cuny-Replica
+# [Cuny-Replica](https://cuny-replica.herokuapp.com/)
 
 ![Landing Page](./photos/2017-09-19_22h04_32.png)
 
 This app would be a remake of the current cuny system as it is not synched well with other servers.
 
-[Deployed Web App](https://cuny-replica.herokuapp.com/)
 
 
 
