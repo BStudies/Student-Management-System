@@ -14637,3 +14637,220 @@ Processing by ProfessorsController#courses as HTML
 Completed 200 OK in 73ms (Views: 3.6ms | ActiveRecord: 10.5ms)
 
 
+Started POST "/login" for 127.0.0.1 at 2017-10-02 14:36:09 -0400
+  [1m[35m (14.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"a", "password"=>"[FILTERED]", "session"=>{"username"=>"a", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "a"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "a"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (5.0ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "6mBiswjv6CeVtomAGpPhTUSk"], ["updated_at", "2017-10-02 18:36:11.547396"], ["id", 3]]
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPerson Load (28.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mStudent Load (15.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 3], ["LIMIT", 1]]
+  [1m[36mProfessor Load (16.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 3], ["LIMIT", 1]]
+Completed 204 No Content in 476ms (ActiveRecord: 119.3ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:36:25 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "undefined"], ["LIMIT", 1]]
+Filter chain halted as :require_login rendered or redirected
+Completed 401 Unauthorized in 45ms (Views: 0.3ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/professor/profile" for 127.0.0.1 at 2017-10-02 14:36:26 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "undefined"], ["LIMIT", 1]]
+Filter chain halted as :require_login rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-10-02 14:36:50 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"Ari", "password"=>"[FILTERED]", "session"=>{"username"=>"Ari", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Ari"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "Ari"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["updated_at", "2017-10-02 18:36:50.405394"], ["id", 2]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPerson Load (1.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.5ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 140ms (Views: 0.3ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/professor/profile" for 127.0.0.1 at 2017-10-02 14:36:50 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/professor/profile" for 127.0.0.1 at 2017-10-02 14:38:44 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mCACHE Person Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/professor/profile/courses" for 127.0.0.1 at 2017-10-02 14:38:48 -0400
+Processing by ProfessorsController#courses as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "nwmKjFpXHo3z5KPU1tUkBY7t"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mProfessor Load (0.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 2], ["LIMIT", 1]]
+  [1m[36mCourse Load (19.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."professor_id" = $1[0m  [["professor_id", 1]]
+Completed 200 OK in 95ms (Views: 18.3ms | ActiveRecord: 27.8ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-10-02 14:39:04 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"username"=>"digihew", "password"=>"[FILTERED]", "session"=>{"username"=>"digihew", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "digihew"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "digihew"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["updated_at", "2017-10-02 18:39:04.399014"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 139ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:39:04 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 17ms (Views: 2.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/professor/profile" for 127.0.0.1 at 2017-10-02 14:39:08 -0400
+Processing by ProfessorsController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:39:10 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 13ms (Views: 1.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/student/profile/courses" for 127.0.0.1 at 2017-10-02 14:39:13 -0400
+Processing by StudentsController#courses as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (15.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = $1[0m  [["student_id", 1]]
+Completed 200 OK in 79ms (Views: 35.8ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:39:15 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 1.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:39:18 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2017-10-02 14:39:20 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (1.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  [1m[36mProfessor Load (1.0ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 1.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:39:21 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-10-02 14:39:25 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (18.0ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (16.1ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (17.0ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (16.0ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (17.0ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (15.0ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 260ms (Views: 0.3ms | ActiveRecord: 121.2ms)
+
+
+Started PUT "/students/finance/out_of_pocket" for 127.0.0.1 at 2017-10-02 14:39:33 -0400
+Processing by StudentsController#update_out_of_pocket as HTML
+  Parameters: {"value"=>"15000", "student"=>{}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (1.0ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mOutOfPocket Load (1.0ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Unpermitted parameter: :student
+  [1m[35m (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "out_of_pockets" SET "value" = $1, "updated_at" = $2 WHERE "out_of_pockets"."id" = $3[0m  [["value", 15000], ["updated_at", "2017-10-02 18:39:33.548284"], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/student/profile" for 127.0.0.1 at 2017-10-02 14:39:37 -0400
+Processing by StudentsController#profile as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/students/finance" for 127.0.0.1 at 2017-10-02 14:39:39 -0400
+Processing by StudentsController#finances as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VZX6GJMAzofCHW2sZ6PhtZSa"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.0ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."person_id" = $1 LIMIT $2[0m  [["person_id", 1], ["LIMIT", 1]]
+  [1m[36mPaymentType Load (1.0ms)[0m  [1m[34mSELECT "payment_types".* FROM "payment_types" WHERE "payment_types"."student_id" = $1[0m  [["student_id", 1]]
+  [1m[36mFafsa Load (1.5ms)[0m  [1m[34mSELECT  "fafsas".* FROM "fafsas" WHERE "fafsas"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mOutOfPocket Load (0.0ms)[0m  [1m[34mSELECT  "out_of_pockets".* FROM "out_of_pockets" WHERE "out_of_pockets"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mTap Load (1.0ms)[0m  [1m[34mSELECT  "taps".* FROM "taps" WHERE "taps"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mScholarship Load (1.0ms)[0m  [1m[34mSELECT  "scholarships".* FROM "scholarships" WHERE "scholarships"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+  [1m[36mLoan Load (1.0ms)[0m  [1m[34mSELECT  "loans".* FROM "loans" WHERE "loans"."payment_type_id" = $1 LIMIT $2[0m  [["payment_type_id", 1], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+

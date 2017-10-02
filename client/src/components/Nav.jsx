@@ -4,34 +4,40 @@ import {Link} from 'react-router-dom';
 
 
 class Nav extends Component{
+
+    handleLogout = () => {
+        Auth.deauthenticateUser()
+        this.props.handleRedirect('/')
+    }
+
+
+
     logoutView = () => {
         if (Auth.isUserAuthenticated()){
             return (
                 // <Link onCLick={e => {Auth.deauthenticateUser()}} className='nav-link' Link to="/">Logout</Link>
-                <button onClick={e => {
-                        Auth.deauthenticateUser()
-                        this.props.handleRedirect('/')
-                    }
-                    }>
+                <nav>
+                    <Link className='nav-link' Link to="/students/profile">My Student Profile</Link>
+                    <Link className='nav-link' Link to="/professors/profile">My Professor Profile</Link>
+                    <button onClick={this.handleLogout}>
                     Logout
                 </button>
+                </nav>
             )
         }
-        return (<button onClick={e => {
-                        this.props.handleRedirect('/')
-                    }
-                    }>
+        return (
+        <nav>
+            <button onClick={e => {this.props.handleRedirect('/')}}>
                     Login
-                </button>)
+            </button>
+        </nav>
+        )
     }
     render(){
         return(
-            <nav>
-                <Link className='nav-link' Link to="/students/profile">My Student Profile</Link>
-                <Link className='nav-link' Link to="/professors/profile">My Professor Profile</Link>
-
+            <div>
                 {this.logoutView()}
-            </nav>
+            </div>
         )
     }
 }

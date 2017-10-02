@@ -106,9 +106,9 @@ class Home extends Component{
                             <h3>Registration</h3>
                             <form onSubmit={e => this.handleRegistrationFormSubmit(e)}>
                                 <div className="accountType">
-                                    <div className="accountTypeSelection">
+                                    {/* <div className="accountTypeSelection">
                                         <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="admins" name="accountType"></input> <h5>Admin</h5>
-                                    </div>
+                                    </div> */}
                                     <div className="accountTypeSelection">
                                         <input onChange={e=>this.handleAccountTypeInputChange(e)} type="radio" className="professors" name="accountType"></input> <h5>Professor</h5>
                                     </div>
